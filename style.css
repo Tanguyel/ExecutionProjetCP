@@ -5,8 +5,8 @@ Description:  Theme for the ExecutionProjet.fr site based on CoursePress Theme
 Author: Tanguy El Mouahidine
 Author URI: 
 Template: coursepress
-Version: 0.0.8
-Date: 07/05/2018
+Version: 0.0.9
+Date: 30/05/2018
 Tags: course, courses, learning, teaching, training, e-learning, e-commerce
 */
 
@@ -507,10 +507,10 @@ article .entry-meta span a {
 
 .widget-area .widget .widget-title {
     border-bottom: 2px solid #604A95;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
     display: inline-block;
 }
 
@@ -2415,7 +2415,8 @@ button[type="submit"].apply-button {
     top: 0px;
 	width: 30px;
     height: 100%;
-    overflow:scroll;
+    overflow-x: hidden;
+    overflow-y: auto ;
     margin: 0px;
     background: #f9f9f9;
     z-index: 1;
@@ -2814,6 +2815,32 @@ button[type="submit"].apply-button {
     }
 }
 
+.module-content .apply-button {
+    min-width: initial;
+    display: inline-block;
+    background-color: #00AEED;
+    background: #00AEED;
+    color: #fff;
+    text-align: center;
+    padding: 6px 15px 6px 15px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    white-space: normal;
+    overflow: initial;
+    text-overflow: unset;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    border: none;
+    text-shadow: none;
+    font-weight: 300;
+    box-shadow: none;
+    -webkit-appearance: initial; 
+}
+
 
 /******** Barre de widget du cours a droite ************/
 
@@ -2865,8 +2892,8 @@ button[type="submit"].apply-button {
 .course-widget-area .apply-button {
     min-width: initial;
     display: block;
-    background-color: #0facd9;
-    background: #0facd9;
+    background-color: #00AEED;
+    background: #00AEED;
     color: #fff;
     text-align: center;
     padding: 6px 15px 6px 15px;
@@ -2888,13 +2915,24 @@ button[type="submit"].apply-button {
     -webkit-appearance: initial; 
 }
 
-/***** Résolution probleme questions qui vont à la ligne apres la checkbos quand elles sont trop longues */ 
+/******** Fenetre des commentaires ********/
+.cp .cp-module-content .comment-notification {
+    float: none;
+    width: 100%;
+}
+
+.cp .cp-module-content .comment-respond .form-submit #submit {
+    width: 100%;
+}
+
+
+/***** Résolution probleme questions qui vont à la ligne apres la checkbox quand elles sont trop longues */ 
 .cp .module-elements li label {
     display: inline;
 }
 
 /* Supression des bulets qui s'ajoutenet en plus des checkbox pour les questions */
-.cp .focus-wrapper .focus-main ul {
+.cp .focus-wrapper .focus-main ul.quiz-question {
     list-style: none;
 }
 

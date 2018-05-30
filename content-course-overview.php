@@ -28,12 +28,18 @@
             <div class="course-box">
 				<?php
 				// Change to yes for 'Open-ended'.
-                $open_ended = cp_is_true( CoursePress_Data_Course::get_setting( $course_id, 'course_open_ended', false ) );
-                if (!($open_ended)) : 
-                    echo do_shortcode( '[course_dates show_alt_display="yes"]' );
-                endif;
+                $open_ended = cp_is_true( CoursePress_Data_Course::get_setting( get_the_ID(), 'course_open_ended', false ) );
+                if ((!$open_ended)) {
+                    echo do_shortcode( '[course_dates show_alt_display="yes"]' ) ;
+                } else {
+                    $start_date = CoursePress_Data_Course::get_setting( get_the_ID(), 'course_start_date' );
+                    if ( CoursePress_Data_Course::strtotime( $start_date ) > CoursePress_Data_Course::time_now() ) {
+                        echo do_shortcode( '[course_dates show_alt_display="yes"]' ) ;
+                    }
+                }
+                    
 				// Change to yes for 'Open-ended'.
-                if (!(cp_is_true( CoursePress_Data_Course::get_setting( $course_id, 'enrollment_open_ended', false )))): 
+                if (!(cp_is_true( CoursePress_Data_Course::get_setting( get_the_ID(), 'enrollment_open_ended', false )))): 
                     echo do_shortcode( '[course_enrollment_dates show_alt_display="no"]' );
                 endif;
 				//echo do_shortcode( '[course_language]' );
@@ -130,7 +136,7 @@ endif;
     
         <div class="course_prerequisites right-content">
             <div class="calltoaction-button orange full"><a href="#footercontact" ><i class="fa fa-refresh"></i>Etre recontacté</a></div>
-            <div class="calltoaction-button orange full"><a href="tel:+33617557936" ><i class="fa fa-mobile-phone fa-lg"></i>06 17 55 79 36</a></div>
+            <div class="calltoaction-button orange full"><a href="tel:+33644663500" ><i class="fa fa-mobile-phone fa-lg"></i>06 44 66 35 00</a></div>
             
             <h1 class="h1-underline-violet"><?php _e( 'Public', 'cp' ); ?></h1>
             <?php echo do_shortcode( '[course_public course_id="' . get_the_ID() . '" label=""]' ); ?>
