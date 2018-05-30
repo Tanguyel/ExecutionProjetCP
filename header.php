@@ -38,7 +38,7 @@
                 <div class='wrap'>
                     <div class="site-branding">
                         <div class="ep-logo-back">
-                            <svg class="eplogo-back" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="eplogo-back" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 500 30">
                                 <title>Exeproj-logo-background</title>
                                 <path d="M -40,-40 L 600,-40 L 70,90 L -40,15 Z" style="fill:#00AEED; stroke:none"></path>
                             </svg>
@@ -99,4 +99,8 @@
                 </div>
             </header><!-- #masthead -->
 
-        <div id="content" class="site-content">
+<?php   $class = '';
+        if ( is_front_page() ) {
+            $class = 'home-page';
+        }  ?>
+        <div id="content" class="site-content <?php echo $class ; ?>">

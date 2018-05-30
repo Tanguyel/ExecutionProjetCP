@@ -66,6 +66,28 @@ if ( ! function_exists( 'executionprojet_widgets_init' ) ) :
 				'after_title' => '</h1>',
 			)
         );
+        register_sidebar(
+            array(
+				'name' => __( 'Home Footer', 'cp' ),
+				'id' => 'home-footer',
+                'description' => __( 'Footer section de la page d\'acceuil avec trois emplacement pour des widgets' ),
+				'before_widget' => '<div id="%1$s" class="widget home-footer-widget %2$s">',
+				'after_widget' => '</div>',
+				'before_title' => '<h3 class="widget-title">',
+				'after_title' => '</h3>',
+			)
+        );
+        register_sidebar(
+            array(
+				'name' => __( 'Home Sidebar', 'cp' ),
+				'id' => 'home-sidebar',
+                'description' => __( 'Side bar retractable avec menu et programe du cours' ),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget' => '</aside>',
+				'before_title' => '<h1 class="widget-title">',
+				'after_title' => '</h1>',
+			)
+        );
 	}
 endif;
 
@@ -86,6 +108,28 @@ add_shortcode(
 remove_filter( 'the_content', 'wpautop' );
 //sur les fichiers 'exerpt'
 remove_filter( 'the_excerpt', 'wpautop' );
+
+
+//enleve la colorisation des titres par CoursePress
+//remove_filter( 'widget_title', 'coursepress_colorize_title' ); 
+//ne marche pas surement car l'ajout dans le theme parent se fait apres
+// --> 
+if ( ! function_exists( 'coursepress_colorize_title' ) ) :
+
+	function coursepress_colorize_title( $old_title ) {
+		return $old_title;
+	}
+endif;
+
+
+
+if ( function_exists( 'add_theme_support' ) ) { 
+    add_theme_support( 'post-thumbnails' );
+    // additional image sizes
+    // delete the next line if you do not need additional image sizes
+    
+}
+add_image_size( 'home-thumbnail', 180, 180, true ); 
 
 function course_unit_archive_sidesubmenu( $atts ) {
 		extract( shortcode_atts(

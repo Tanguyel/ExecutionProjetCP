@@ -5,8 +5,8 @@ Description:  Theme for the ExecutionProjet.fr site based on CoursePress Theme
 Author: Tanguy El Mouahidine
 Author URI: 
 Template: coursepress
-Version: 0.0.4
-Date: 20/12/2017
+Version: 0.0.5
+Date: 16/01/2018
 Tags: course, courses, learning, teaching, training, e-learning, e-commerce
 */
 
@@ -81,6 +81,67 @@ svg.eplogo {
 	Width: 00px;
 }
 
+
+@media screen and (max-width:1024px) {
+    
+    svg.eplogo-back {
+        width: 425px;
+        height: 25px;
+        margin-top: 0px;
+        margin-left:-45px; 
+        }
+
+    svg.eplogo {
+        width: 255px;
+        height: 42px;
+
+    }
+    
+}
+
+
+
+@media screen and (max-width:790px) {
+    
+    svg.eplogo-back {
+        width: 350px;
+        height: 21px;
+        margin-top: 0px;
+        margin-left:-40px; 
+        }
+
+    svg.eplogo {
+        width: 210px;
+        height: 35px;
+        margin-top:-5px;
+        margin-left:-10px; 
+    }
+    .main-navigation {
+        margin-top: 15px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    
+    svg.eplogo-back {
+        width: 250px;
+        height: 15px;
+        margin-top: 0px;
+        margin-left:-30px; 
+        }
+
+    svg.eplogo {
+        width: 150px;
+        height: 25px;
+        margin-top:-10px;
+        margin-left:-15px; 
+    }
+    
+    .main-navigation {
+        margin-top: 10px;
+    }
+}
+
 li.current-menu-item a, li.current_page_item a {
     color: #00AEED !important;
 }
@@ -121,7 +182,7 @@ li.current-menu-item a, li.current_page_item a {
 
 @media screen and ( max-width: 750px ) {
     header.site-header {
-        width: 97%;
+        width: 100%;
     } 
 }
 
@@ -165,6 +226,391 @@ body {
     font-family: "Source Sans Pro";
     text-align: center;
 }
+
+
+/****************************************
+
+        Modification de la page d'acceuil 
+
+*****************************************/
+
+.site-content.home-page {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+
+
+.home-page section {
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+}
+
+.home-page .top-section {
+    background-image: url("http://www.executionprojet.fr/wp-content/uploads/2017/09/Bureauvitré.jpg");
+    padding: 120px 0px 120px 0px;
+}
+
+.home-page .section-entreprise {
+    background-image: url("http://www.executionprojet.fr/wp-content/uploads/2017/09/office-2360063_1920.jpg");
+    padding: 0px 0px 190px 0px;
+}
+
+.home-page .main-section {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-page .section-home-footer {
+    background-color: #00AEED;
+    padding: 60px 10px 50px 10px;
+    text-align: center;
+}
+
+.home-page section .section-overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.home-page .section-hero .section-overlay {
+    background-color: #63d3bb;
+    opacity: 0.65;
+}
+
+.home-page .section-entreprise .section-overlay {
+    background-color: #f8931f;
+    opacity: 0.5;
+}
+
+.home-page section .section-title {
+    border:0px none;
+}
+
+.home-page .top-section .hero-section-title {
+    padding: 50px;
+    max-width:960px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+}
+
+.home-page .top-section .hero-section-title h1 {
+    color: #ffffff;
+    font-size: 40px;
+    font-family: "Raleway", Sans-serif;
+    line-height: 1.em;
+    text-decoration: none;
+}
+
+.home-page .section-entreprise .section-title {
+    padding: 40px 30% 20px 40px;
+    text-align: center;
+    position: relative;
+}
+
+.home-page .section-entreprise .section-title h1 {
+    color: #ffffff;
+    font-size: 40px;
+    font-family: "Raleway", Sans-serif;
+    line-height: 1.em;
+}
+
+.home-page section .section-text {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.home-page .section-entreprise .section-text {
+    font-size: 1.6em;
+    font-family: "Source Sans Pro", Sans-serif;
+    font-weight: 500;
+    line-height: 1.6em;
+}
+
+.home-page .section-entreprise .section-text ul{
+    padding-left: 30px;
+}
+
+.home-page .section-entreprise .section-text li {
+    list-style: disc
+}
+
+
+.home-page section .home-footer-widget {
+    display: inline-block;
+    width: 30%;
+    margin: 1.5%;
+    padding: 0px ; 
+    text-align: left;
+    vertical-align: top; 
+    min-width: 200px;
+}
+
+.home-page section .home-footer-widget .widget-title {
+    color: #fff;
+    font-size: 21px;
+    font-family: "Raleway", Sans-serif;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: none;
+    margin-bottom: 0px;
+}
+
+.home-page section .home-footer-widget .widget-text {
+    color: #fff;
+    font-size: 19px;
+    font-weight: 400;
+    padding-left: 20px
+}
+
+.home-page section .home-footer-widget .widget-text p {
+    font-size: 19px;
+    text-align: justify
+}
+
+.home-page section .section-button {
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.home-page .main-section .blog-post-display {
+    width: 62%;
+    padding:10px 0.5%;
+    margin-left: 1%;
+    margin-right: 1%;
+    display: inline-block;
+    vertical-align: top; 
+}
+
+.home-page .main-section .home-sidebar {
+    width: 32%;
+    min-height: 400px;
+    padding: 0px;
+    margin-left: 1%;
+    margin-right: 1%;
+    display: inline-block;
+    vertical-align: top; 
+}
+
+.home-page .main-section .home-sidebar aside {
+    text-align: left;
+}
+
+.home-page .main-section .blog-post-display{
+    text-align: center;
+}
+
+.home-page article:hover {
+    box-shadow: 0px 5px 10px 1px rgba(0,0,0,0.1);
+}
+
+.home-page article .entry-header,
+.home-page article .entry-meta {
+    text-align:left;
+}
+
+.home-page article .entry-header a {
+    color : #000;
+    text-decoration: none;
+    font-family: 'raleway', inherit;
+    font-size: 30px;
+}
+
+.home-page article .entry-header h1,
+.home-page article .featured-image,
+.home-page article .entry-content, 
+.home-page article .entry-summary {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.home-page article .featured-image {
+    width: 30%;
+    min-width: 150px;
+}
+
+.home-page article .entry-content,
+.home-page article .entry-summary {
+    width: 65%;
+    min-width: 250px;
+    margin: 0px;
+    padding: 0px 1%;
+    text-align: justify;
+    font-weight: 400;
+}
+
+.home-page article .entry-content a,
+.home-page article .entry-summary a {
+    color: black;
+    font-style: italic;
+}
+
+.home-page article .entry-meta {
+    height: auto;
+    padding:5px 15px 20px 15px;
+}
+
+.home-page article .entry-meta span {
+    /* background: #604A95; */
+    /* opacity: 0.7; */
+    padding: 2px 5px;
+    margin: 0px 3px;
+    border-bottom: solid 1px #604A95;
+    font-size: 14px;
+}
+
+.home-page article .entry-meta span:hover {
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+
+.home-page article .entry-meta span.date-links {
+    /* background: #00AEED; */
+    border-bottom-color: #00AEED;
+}
+
+.home-page article .entry-meta span a {
+    color: #000;
+    text-decoration: none
+}
+
+.home-page .blog-post-display .more {
+    padding: 15px;
+}
+
+
+.widget-area .widget {
+    padding: 10px;
+    margin: 0px;
+    display: inline-block;
+    min-width: 200px;
+    max-width: 300px;
+    /*width:100%; */
+    vertical-align: top;
+    float: initial;
+}
+
+.widget-area .widget .widget-title {
+    border-bottom: 2px solid #604A95;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.home-page .calltoaction-buton a:hover {
+    background-color: rgba(255, 255, 255, 0.8) !important; 
+}
+
+.home-page .calltoaction-buton a {
+    font-size: 20px;
+}
+
+@media screen and (max-width:790px) {
+    .home-page .main-section .blog-post-display {
+        width: 97%;
+       /* padding:10px 0.5%;
+        margin-left: 1%;
+        margin-right: 1%;
+        display: inline-block;
+        vertical-align: top; */
+    }
+
+    .home-page .main-section .home-sidebar {
+        width: 98%;
+        min-height: initial;
+        text-align: center;
+      /*  min-height: 400px;
+        padding: 0px;
+        margin-left: 1%;
+        margin-right: 1%;
+        display: inline-block;
+        vertical-align: top; */
+    }
+    
+    .home-page .section-hero .section-title h1,
+    .home-page .section-entreprise .section-title h1 {
+        font-size: 35px;
+    }
+    
+    .home-page .section-entreprise .section-title {
+        padding: 30px 15% 20px 30px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .home-page .main-section .widget,
+    .home-page section .home-footer-widget{
+        width: 95%;
+        max-width: none;
+    }
+    
+    .home-page article .featured-image,
+    .home-page article .entry-content,
+    .home-page article .entry-summary {
+        width: 98%;
+    }
+    
+    .home-page .section-entreprise {
+        padding-bottom: 70px;
+    }
+    
+    .home-page .section-hero .section-title h1,
+    .home-page .section-entreprise .section-title h1{
+        font-size: 28px;
+    }
+    
+    .home-page .section-hero .section-title{
+        padding: 20px;
+    }
+    
+    .home-page .section-entreprise .section-title {
+        padding: 20px 30px 15px 20px;
+    }
+    
+    .home-page .section-entreprise .section-text {
+        font-size: 20px;
+    }
+    
+    .home-page .section-hero {
+        padding: 70px 0px 70px 0px;
+    }
+    
+    .home-page .section-home-footer {
+        padding-top: 20px;
+        padding-bottom: 15px
+    }
+    
+    .h1-underline-orange,
+    .h1-underline-cyan,
+    .h1-underline-violet{
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 15px;
+    }
+}
+
+
+.align-icon-right {
+    float: right;
+    margin-left: 5px;
+}
+
+
 
 
 /****************************************
@@ -293,6 +739,7 @@ section h1.right {
     border-radius: 4px;
     text-decoration: none;
     display: inline-block;
+    line-height: 1;
 }
 
 .calltoaction-buton.orange a {
@@ -1820,7 +2267,7 @@ button[type="submit"].apply-button {
         width: 96%;
     }
     
-    aside.widget {
+   .course-widget-area aside.widget {
         max-width: 300px;
         float:left;
         margin-right: 2%;
@@ -1829,7 +2276,7 @@ button[type="submit"].apply-button {
 }
 
 @media screen and (max-width:600px) {
-    aside.widget {
+   .course-widget-area aside.widget {
         width: 96%;
         max-width: initial;
     }
