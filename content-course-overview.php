@@ -96,7 +96,7 @@ if ( CoursePress_Data_Course::get_setting( get_the_ID(), 'structure_visible', tr
             <h1 class="h1-objectives"><?php _e( 'Prerequisites', 'cp' ); ?></h1>
             <?php echo do_shortcode( '[course_prerequisites course_id="' . get_the_ID() . '" label=""]' ); ?>
         </div>
-    <?php $instructors = CoursePress_Data_Shortcode_Instructor::course_instructors( array( 'style' => 'block' ) ); ?>
+    <?php $instructors = CoursePress_Data_Shortcode_Instructor::course_instructors( array( 'style' => 'block' , 'avatar_size' => '180' , 'link_all' => 'yes' , 'link_text' => '') ); ?>
 	<?php if ( ! empty( $instructors ) ) : ?>
 		<div class="course-instructors right-content">
 			<h1 class="h1-instructors"><?php _e( 'Instructors', 'cp' ); ?></h1>

@@ -10,4 +10,5 @@
 	<?php if ( ! dynamic_sidebar( 'course-sidebar' ) ) : 
         // No default content...
 	endif; // end sidebar widget area ?>
+    <div class="clearfix"></div>
 </div><!-- #secondary -->

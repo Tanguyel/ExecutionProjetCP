@@ -24,12 +24,12 @@ function orbisius_ctc_coursepress_child_theme_enqueue_styles() {
         array(),
         wp_get_theme( $parent_base_dir ) ? wp_get_theme( $parent_base_dir )->get('Version') : ''
     );
-
+/*
     wp_enqueue_style( $parent_style . '_child_style',
         get_stylesheet_directory_uri() . '/style.css',
         array( $parent_style ),
         wp_get_theme()->get('Version')
-    );
+    );*/
 }
 
 add_action( 'wp_enqueue_scripts', 'orbisius_ctc_coursepress_child_theme_enqueue_styles' );
@@ -46,7 +46,7 @@ if ( ! function_exists( 'executionprojet_widgets_init' ) ) :
 	function executionprojet_widgets_init() {
 		register_sidebar(
 			array(
-				'name' => __( 'Course Sidebar', 'epcp' ),
+				'name' => __( 'Course Sidebar', 'cp' ),
 				'id' => 'course-sidebar',
                 'description' => __( 'Side bar affiché lors du déroulement du cours' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -55,10 +55,185 @@ if ( ! function_exists( 'executionprojet_widgets_init' ) ) :
 				'after_title' => '</h1>',
 			)
 		);
+        register_sidebar(
+            array(
+				'name' => __( 'Course menu', 'cp' ),
+				'id' => 'course-menu',
+                'description' => __( 'Side bar retractable avec menu et programe du cours' ),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget' => '</aside>',
+				'before_title' => '<h1 class="widget-title">',
+				'after_title' => '</h1>',
+			)
+        );
 	}
 endif;
 
 function EP_scripts() {
     wp_enqueue_script( 'tarteaucitron', '/tarteaucitron/tarteaucitron.js' );
 }
+
+
+
+
 add_action( 'wp_enqueue_scripts', 'EP_scripts' );
+add_shortcode(
+			'course_unit_archive_sidesubmenu',
+			'course_unit_archive_sidesubmenu');
+
+//empêcher l'éditeur wysiwyg d'ajouter des balises <p> et <br> :
+//sur les fichiers 'content'
+remove_filter( 'the_content', 'wpautop' );
+//sur les fichiers 'exerpt'
+remove_filter( 'the_excerpt', 'wpautop' );
+
+function course_unit_archive_sidesubmenu( $atts ) {
+		extract( shortcode_atts(
+			array(
+				'course_id' => CoursePress_Helper_Utility::the_course( true ),
+			),
+			$atts,
+			'course_unit_archive_submenu'
+		) );
+
+		$course_id = (int) $course_id;
+
+		if ( empty( $course_id ) ) { return ''; }
+
+		$subpage = CoursePress_Helper_Utility::the_course_subpage();
+		$course_status = get_post_status( $course_id );
+		$course_base_url = CoursePress_Data_Course::get_course_url( $course_id );
+        $course_structure = do_shortcode( '[course_structure course_id="' . $course_id . '" free_show="false" label=""]' );
+    
+		$content = '
+		<div class="submenu-main-container cp-submenu">
+			<ul id="submenu-main" class="submenu nav-submenu">
+				<li class="submenu-item submenu-units ' . ( 'units' == $subpage ? 'submenu-active' : '' ) . '">
+                    <input type="checkbox"/><span class="icon"></span>
+                        <a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'unit/' ) ) . '" class="course-units-link">' . esc_html__( 'Units', 'cp' ) . '</a>
+                        ' . $course_structure . '
+                        </li>
+		';
+
+		$student_id = is_user_logged_in() ? get_current_user_id() : false;
+		$enrolled = ! empty( $student_id ) ? CoursePress_Data_Course::student_enrolled( $student_id, $course_id ) : false;
+		$instructors = CoursePress_Data_Course::get_instructors( $course_id );
+		$is_instructor = in_array( $student_id, $instructors );
+
+
+		if ( $enrolled || $is_instructor ) {
+			$content .= '
+				<li class="submenu-item submenu-notifications ' . ( 'notifications' == $subpage ? 'submenu-active' : '' ) . '"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'notification' ) ) . '">' . esc_html__( 'Notifications', 'cp' ) . '</a></li>
+			';
+		}
+
+		$pages = CoursePress_Data_Course::allow_pages( $course_id );
+
+		if ( $pages['course_discussion'] && ( $enrolled || $is_instructor ) ) {
+			$content .= '<li class="submenu-item submenu-discussions ' . ( 'discussions' == $subpage ? 'submenu-active' : '' ) . '"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'discussion' ) ) . '">' . esc_html__( 'Discussions', 'cp' ) . '</a></li>';
+		}
+
+		if ( $pages['workbook'] && $enrolled ) {
+			$content .= '<li class="submenu-item submenu-workbook ' . ( 'workbook' == $subpage ? 'submenu-active' : '' ) . '"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'workbook' ) ) . '">' . esc_html__( 'Workbook', 'cp' ) . '</a></li>';
+		}
+
+		if ( $pages['grades'] && $enrolled ) {
+			$content .= '<li class="submenu-item submenu-grades ' . ( 'grades' == $subpage ? 'submenu-active' : '' ) . '"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'grades' ) ) . '">' . esc_html__( 'Grades', 'cp' ) . '</a></li>';
+		}
+
+		$content .= '<li class="submenu-item submenu-info"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url ) . '">' . esc_html__( 'Course Details', 'cp' ) . '</a></li>';
+
+		$show_link = false;
+
+        $show_link = CoursePress_Data_Certificate::is_enabled() && CoursePress_Data_Student::is_enrolled_in_course( $student_id, $course_id );
+
+		if ( is_user_logged_in() && $show_link ) {
+			// COMPLETION LOGIC.
+			if ( CoursePress_Data_Student::is_course_complete( get_current_user_id(), $course_id ) ) {
+				$certificate = CoursePress_Data_Certificate::get_certificate_link( get_current_user_id(), $course_id, __( 'Certificate', 'cp' ) );
+
+				$content .= '<li class="submenu-item submenu-certificate ' . ( 'certificate' == $subpage ? 'submenu-active' : '') . '"><span class="icon"></span>' . $certificate . '</li>';
+			}
+		}
+
+		$content .= '
+			</ul>
+		</div>
+		';
+
+		return $content;
+	}
+
+
+
+
+function register_cp_widget_help() {
+		register_widget( 'CoursePress_Widget_Help' );
+	}
+add_action( 'widgets_init', 'register_cp_widget_help' );
+
+
+
+class CoursePress_Widget_Help extends WP_Widget {
+/*	public static function init() {
+		add_action( 'widgets_init', array( 'CoursePress_Widget_Help', 'register' ) );
+	}
+
+	public static function register() {
+		register_widget( 'CoursePress_Widget_Help' );
+	}
+*/
+	public function __construct() {
+		$widget_ops = array(
+			'classname' => 'cp_course_help',
+			'description' => __( 'A small space giving instruction to get help', 'cp' ),
+		);
+
+		parent::__construct( 'CP_Widget_Help', __( 'Course Help', 'cp' ), $widget_ops );
+
+	}
+
+	public function form( $instance ) {
+		//Defaults
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
+		$title = esc_attr( $instance['title'] );
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'cp' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>"/>
+		</p>
+		<?php
+	}
+
+	public function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+
+		$instance['title'] = strip_tags( $new_instance['title'] );
+
+		return $instance;
+	}
+
+	public function widget( $args, $instance ) {
+		extract( $args, EXTR_SKIP );
+
+		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? __( 'Course Help', 'cp' ) : $instance['title'], $instance, $this->id_base );
+        $course_id = CoursePress_Helper_Utility::the_course( true );
+        $course_id = (int) $course_id;
+        $course_base_url = CoursePress_Data_Course::get_course_url( $course_id );
+
+		echo $before_widget;
+
+		if ( $title && ! empty( $title ) ) {
+			echo $before_title . $title . $after_title;
+		}
+		?>
+		<ul>
+            <li>N'hesitez pas à poser une question sur le <a href="<?php echo esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'discussion' ) ); ?>"><?php echo esc_html__( 'Discussions', 'cp' ); ?></a></li>
+            <li>Vous pouvez aussi <a href="http://www.executionprojet.fr/contact/">contacter le formateur</a></li>
+		</ul>
+		<?php
+		echo $after_widget;
+	}
+}
+
+
