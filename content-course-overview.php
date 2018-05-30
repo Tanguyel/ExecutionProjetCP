@@ -114,7 +114,7 @@ if ( CoursePress_Data_Course::get_setting( get_the_ID(), 'structure_visible', tr
         <h1 class = "h1-underline-orange"><?php
 			_e( 'Course Structure', 'cp' );
             ?></h1>
-        <?php echo do_shortcode( '[course_structure label="" show_title="no" show_divider="yes"]' );
+        <?php echo do_shortcode( '[course_structure label="" full_structure="true"]' );
 endif;
 /*
 		wp_link_pages(
@@ -129,7 +129,7 @@ endif;
 
     
         <div class="course_prerequisites right-content">
-            <div class="calltoaction-button orange full"><a href="#footercontact" ><i class="fa fa-refresh"></i>Etre recontacter</a></div>
+            <div class="calltoaction-button orange full"><a href="#footercontact" ><i class="fa fa-refresh"></i>Etre recontacté</a></div>
             <div class="calltoaction-button orange full"><a href="tel:+33617557936" ><i class="fa fa-mobile-phone fa-lg"></i>06 17 55 79 36</a></div>
             
             <h1 class="h1-underline-violet"><?php _e( 'Public', 'cp' ); ?></h1>

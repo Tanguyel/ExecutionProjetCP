@@ -5,8 +5,8 @@ Description:  Theme for the ExecutionProjet.fr site based on CoursePress Theme
 Author: Tanguy El Mouahidine
 Author URI: 
 Template: coursepress
-Version: 0.0.7
-Date: 02/05/2018
+Version: 0.0.8
+Date: 07/05/2018
 Tags: course, courses, learning, teaching, training, e-learning, e-commerce
 */
 
@@ -1783,6 +1783,10 @@ Complement pour la page de description du cours CoursePress.
     margin-top: 10px;
 }
 
+.single-course .quick-course-info .apply-button-enrolled {
+    max-width: 100%;
+}
+
 
 .single-course .course-excerpt {
     padding-bottom: 5px;
@@ -1818,7 +1822,11 @@ button[type="submit"].apply-button {
 }
 */
 
-
+.course .course_objectives ul, 
+.course .course_resources ul, 
+.course .course_prerequisites ul {
+    list-style: none;
+} 
 
 .course .course_objectives li:before, 
 .course .course_resources li:before, 
@@ -1832,6 +1840,7 @@ button[type="submit"].apply-button {
     left: -10px;
     position: relative;
 }
+
 
 /***** Fenetre modal pour telecharger le programme ******/
 
@@ -2022,19 +2031,24 @@ button[type="submit"].apply-button {
     border-bottom: 2px solid #00AEED;
 }
 
-.course-structure-block .unit-title-wrapper:hover a {
+.course-structure-block .unit-title-wrapper:hover a,
+.course-structure-block .unit-title-wrapper:hover span {
     color: #00AEED;
 }
 
 
-.course-structure-block .unit-title  a, .course-structure-block .unit-link  a {
+.course-structure-block .unit-title  a, 
+.course-structure-block .unit-link  a,
+.course-structure-block .unit-title  span, 
+.course-structure-block .unit-link  span {
     color: #000;
     font-weight: 300;
     font-family: 'raleway', 'source sans pro', sans-serif;
     font-size: 22px;
 }
 
-.course-structure-block .unit-title  a:hover, .course-structure-block .unit-link  a:hover {
+.course-structure-block .unit-title  a:hover, 
+.course-structure-block .unit-link  a:hover {
     text-decoration: none;
 }
 /*
@@ -2064,7 +2078,8 @@ button[type="submit"].apply-button {
     border-bottom: 2px solid #604A95;
 }
 
-.course-structure-block ul.tree > li.unit .unit-page-title-wrapper:hover a {
+.course-structure-block ul.tree > li.unit .unit-page-title-wrapper:hover a,
+.course-structure-block ul.tree > li.unit .unit-page-title-wrapper:hover span {
     color: #604A95;
 }
 
@@ -2074,7 +2089,8 @@ button[type="submit"].apply-button {
     }
 }
 
-.course-structure-block .tree .unit-page-title-wrapper a {
+.course-structure-block .tree .unit-page-title-wrapper a,
+.course-structure-block .tree .unit-page-title-wrapper span {
     color: #000;
     line-height: 20px;
     font-weight: 300;
@@ -2090,34 +2106,32 @@ button[type="submit"].apply-button {
     cursor: inherit
 }
 
-.course-structure-block .unit-page-title-wrapper, .course-structure-block .unit-page-module-wrapper,
+.course-structure-block .unit-page-title-wrapper, 
+.course-structure-block .unit-page-module-wrapper,
 .course-structure-block .module-list > li {
     padding: 10px 70px;
     position: relative
 }
 
-.course-structure-block .unit-page-module-wrapper, .course-structure-block .module-list > li {
+.course-structure-block .unit-page-module-wrapper, 
+.course-structure-block .module-list > li {
     padding-left: 140px
 }
 
-.course-structure-block .unit-page-module-wrapper.free, .course-structure-block .module-list > li.free {
-    background: #028ca9;
-    color: #FFFFFF
-}
 
 .course-structure-block .unit-page-estimate {
     position: absolute;
     right: 15px;
-    top: 15px
+    bottom: 4px;
 }
 
 @media (min-width: 400px) {
     .course-structure-block .unit-page-estimate {
-        right: 140px
+        right: 110px
     }
 }
 
-.course-structure-block .enrolled .unit-page-estimate {
+.course-structure-block.enrolled .unit-page-estimate {
     right: 40px
 }
 
@@ -2126,22 +2140,25 @@ button[type="submit"].apply-button {
 /*****  MODULE  *****/
 
 @media (max-width: 720px) {
-    .course-structure-block .unit-page-title-wrapper, .course-structure-block .unit-page-module-wrapper,
+    .course-structure-block .unit-page-title-wrapper, 
+    .course-structure-block .unit-page-module-wrapper,
     .course-structure-block .module-list > li {
         padding-left: 60px
     }
 
-    .course-structure-block .unit-page-module-wrapper, .course-structure-block .module-list > li {
+    .course-structure-block .unit-page-module-wrapper, 
+    .course-structure-block .module-list > li {
         padding-left: 90px
     }
 }
 
 /*   Preview Buton */
 
-.course-structure-block .unit-module-preview-link a, .course-structure-block .unit-link a, .course-structure-block .unit-page-link a{
+.course-structure-block .unit-module-preview-link a, 
+.course-structure-block .unit-link a, 
+.course-structure-block .unit-page-link a{
     position: absolute;
-    right: 40px;
-    top: 9px;
+    right: 10px;
     padding: 2px 10px;
     background-color: #F8931F;
     -moz-transition-property: border-color, background, color;
@@ -2157,16 +2174,40 @@ button[type="submit"].apply-button {
     border-radius: 4px
 }
 
-.course-structure-block .unit-link a, .course-structure-block .unit-page-title-wrapper .unit-page-link a, .course-structure-block .unit-page-module-wrapper .unit-module-preview-link a {
-    color: #FFF;
-    border: 2px solid #F8931F
+.course-structure-block .unit-module-preview-link a {
+    top:0px;
 }
 
-.course-structure-block .unit-link a:hover, .course-structure-block .unit-page-title-wrapper .unit-page-link a:hover, .course-structure-block .unit-page-module-wrapper .unit-module-preview-link a:hover {
+.course-structure-block .unit-link a {
+    top:3px;
+} 
+
+.course-structure-block .unit-page-link a {
+    top:5px;
+}
+
+
+.course-structure-block .unit-link a, 
+.course-structure-block .unit-page-title-wrapper .unit-page-link a, 
+.course-structure-block .unit-page-module-wrapper .unit-module-preview-link a {
     color: #FFF;
+    border: 2px solid #F8931F;
+    padding: 2px 10px;
+}
+
+.course-structure-block .unit-link a:hover, 
+.course-structure-block .unit-page-title-wrapper .unit-page-link a:hover, 
+.course-structure-block .unit-page-module-wrapper .unit-module-preview-link a:hover {
+    color: #F8931F;
     border: 2px solid #F8931F;
     background-color: rgba(248, 147, 31, 0);
 }
+
+.course-structure-block .unit-link, 
+.course-structure-block .unit-page-title-wrapper .unit-page-link {
+    display:none;
+}
+
 
 /*  Fin  Preview Buton */
 
@@ -2175,14 +2216,14 @@ button[type="submit"].apply-button {
     padding-bottom: 0px;
 }
 
-.course-structure-block .module-title a {
+.course-structure-block .module-title a,
+.course-structure-block .module-title span {
     color: #FFF;
     font-size: 18px;
+    font-weight: 300;
 }
 
-.course-structure-block .module-title span {
-    font-size: 18px;
-}
+
 
 .course-structure-block .module-title:before {
     content: '';
@@ -2198,7 +2239,8 @@ button[type="submit"].apply-button {
     content: "\f491"
 }
 
-.course-structure-block .video .module-title:before, .course-structure-block .audio .module-title:after {
+.course-structure-block .video .module-title:before, 
+.course-structure-block .audio .module-title:after {
     content: "\f236"
 }
 
@@ -2274,7 +2316,8 @@ button[type="submit"].apply-button {
     line-height: 50px
 }
 
-.course-structure-block ul.tree > li.unit .unit-title a, .course-structure-block ul.tree > li.unit .unit-title span {
+.course-structure-block ul.tree > li.unit .unit-title a, 
+.course-structure-block ul.tree > li.unit .unit-title span {
     display: block;
     line-height: 50px;
     padding: 0 30px;
@@ -2294,9 +2337,10 @@ button[type="submit"].apply-button {
     border-bottom: 2px solid #F8931F;
 }
 
-.course-structure-block ul.tree > li.unit ul.page-modules li .unit-page-module-wrapper a {
+.course-structure-block .unit-page-module-wrapper a,
+.course-structure-block .unit-page-module-wrapper span {
     color: #000;
-    padding-left: 30px;
+    padding-left: 30px !important; 
 }
 
 .course-structure-block ul.tree > li.unit ul.page-modules li .unit-page-module-wrapper a:hover {

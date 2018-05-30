@@ -167,7 +167,7 @@ function course_unit_archive_sidesubmenu( $atts ) {
     $subpage = CoursePress_Helper_Utility::the_course_subpage();
     $course_status = get_post_status( $course_id );
     $course_base_url = CoursePress_Data_Course::get_course_url( $course_id );
-    $course_structure = do_shortcode( '[course_structure course_id="' . $course_id . '" free_show="false" label=""]' );
+    $course_structure = do_shortcode( '[course_structure course_id="' . $course_id . '" free_show="false" label="" ]' );
 
     $content = '
     <div class="submenu-main-container cp-submenu">
