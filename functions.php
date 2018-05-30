@@ -166,7 +166,7 @@ function course_unit_archive_sidesubmenu( $atts ) {
 
 
 
-
+/*
 function register_cp_widget_help() {
 		register_widget( 'CoursePress_Widget_Help' );
 	}
@@ -182,7 +182,7 @@ class CoursePress_Widget_Help extends WP_Widget {
 	public static function register() {
 		register_widget( 'CoursePress_Widget_Help' );
 	}
-*/
+*/ /*
 	public function __construct() {
 		$widget_ops = array(
 			'classname' => 'cp_course_help',
@@ -236,4 +236,4 @@ class CoursePress_Widget_Help extends WP_Widget {
 	}
 }
 
-
+*/

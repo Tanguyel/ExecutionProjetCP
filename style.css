@@ -981,7 +981,35 @@ Complement pour la page de description du cours CoursePress.
     padding-bottom: 5px;
 }
 
-
+.formule.hidden {
+	display: none !important;
+}
+/*
+button[type="submit"].apply-button {
+	width: 100%;
+    float: right;
+    display: block;
+    background-color: #0facd9;
+    background: #0facd9;
+    color: #fff;
+    text-align: center;
+    padding: 6px 0 6px 0px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 20px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    border: none;
+    text-shadow: none;
+    box-shadow: none;
+    font-weight: 300;
+}
+*/
 /***************************************************
 
             Apparence de la structure du cours
@@ -1416,7 +1444,8 @@ Complement pour la page de description du cours CoursePress.
 
 .content-area.coursepress-single-unit{
     padding-left: 45px;
-    min-height: 400px
+    min-height: 400px;
+    max-width: 650px;
 }
 
 .course-side-menu .cp-submenu .submenu-item a {
@@ -1783,7 +1812,7 @@ Complement pour la page de description du cours CoursePress.
 /******** Barre de widget du cours a droite ************/
 
 #secondary.course-widget-area {
-    width: 200px;
+    width: 250px;
 }
 
 @media screen and (max-width:980px) {
@@ -1814,8 +1843,44 @@ Complement pour la page de description du cours CoursePress.
 .course-widget-area h1.widget-title {
     margin-bottom: 5px;
     border-bottom: 2px solid #604A95;
+    font-size: 24px;
 }
 
+.course-widget-area p,
+.course-widget-area ul{
+    margin-bottom: 0px;
+}
+
+.course-widget-area .cp_course_upgrade li {
+    margin-left: 20px;
+    list-style: disc;
+}
+
+.course-widget-area .apply-button {
+    min-width: initial;
+    display: block;
+    background-color: #0facd9;
+    background: #0facd9;
+    color: #fff;
+    text-align: center;
+    padding: 6px 15px 6px 15px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    white-space: normal;
+    overflow: initial;
+    text-overflow: unset;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    border: none;
+    text-shadow: none;
+    font-weight: 300;
+    box-shadow: none;
+    -webkit-appearance: initial; 
+}
 
 
 /***************************************************
