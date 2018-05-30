@@ -1,0 +1,170 @@
+/*
+Theme Name: ExecutionProjet CP
+Theme URI: 
+Description:  Theme for the ExecutionProjet.fr site based on CoursePress Theme
+Author: Tanguy El Mouahidine
+Author URI: 
+Template: coursepress
+Version: 0.0.2
+Tags: course, courses, learning, teaching, training, e-learning, e-commerce
+*/
+
+
+
+/****************************************
+
+        Modification du Header 
+
+*****************************************/
+
+.site-header {
+  background-color: #604A95;
+  border-bottom-color: #4F3D7A;
+  border-bottom-style: solid;
+  padding: 0px;
+}
+
+.site-header .wrap {
+  width: auto;
+  margin-left: 20px;
+  margin-right:20px;
+}
+
+.site-branding {
+    margin-top: 10px;
+    z-index: 2;
+    position: relative;
+}
+
+.site-branding a:hover {
+    text-decoration: none;
+}
+
+
+.main-navigation a {
+  color: #000;
+}
+
+.main-navigation a:hover{
+    color: #00AEED;
+}
+
+svg.eplogo-back {
+	overflow: visible; 
+	width: 500px;
+	height: 30px;
+	margin-top: -10px;
+	margin-left:-50px;
+	}
+
+svg.eplogo {
+	overflow: visible; 
+	width: 300px;
+	Height: 50px;
+	margin-top:0px;
+	margin-left:0px;
+}
+
+.ep-logo-back {
+	display: inline-block;
+	height: 0px;
+	width: 0px;
+}
+
+.ep-logo-title {
+	display: inline-block;
+	height: 0px;
+	Width: 00px;
+}
+
+
+/****************************************
+
+        Modification de l'aspect general du contenu principal
+
+*****************************************/
+
+.site-content {
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.coursepress-page-no-widgets .entry-content {
+    margin-top: 0px;
+}
+
+.site-main {
+    padding-top:40px
+}
+
+
+
+.course-widget-area {
+    padding-top: 40px;
+}
+
+
+/*************************************************
+
+        Modification des polices des titres
+
+*************************************************/
+
+
+h1, h2, h3, h4, h5, h6, h7, h8, h9, .menu-item {
+	font-family: "Raleway-Bold", "Raleway", "Source Sans Pro", initial, inherit;
+}
+
+
+
+
+/****************************************
+
+        Modification du Footer 
+
+*****************************************/
+
+
+.site-footer {
+	background-color:#F8931F;
+	color:#000;
+    border-top: none;
+}
+
+.site-footer a {
+	color: #222;
+}
+
+.ep-footer {
+    font-weight: 400;
+    font-family: "Source Sans Pro", initial, inherit;
+    text-align: center;
+}
+
+
+/****************************************
+
+        Modification des custom post de la page d'acceuil 
+
+*****************************************/
+
+
+.elm-main-blog-layout {
+	background-color: #fff;
+	margin-bottom: 10px;
+	padding: 40px 60px;
+}
+
+.elm-main-blog-layout .entry-header {
+	margin-top:-40px;
+	margin-right:-60px;
+	margin-left:-60px;
+	margin-bottom:5px;
+	padding-top:40px;
+	Padding-right:60px;
+	padding-left:60px;
+}
+
+.elm-main-blog-layout .entry-header h2 {
+	margin-bottom:5px;
+}
