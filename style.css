@@ -5,8 +5,8 @@ Description:  Theme for the ExecutionProjet.fr site based on CoursePress Theme
 Author: Tanguy El Mouahidine
 Author URI: 
 Template: coursepress
-Version: 0.0.5
-Date: 16/01/2018
+Version: 0.0.6
+Date: 31/01/2018
 Tags: course, courses, learning, teaching, training, e-learning, e-commerce
 */
 
@@ -253,7 +253,7 @@ body {
 
 .home-page .top-section {
     background-image: url("http://www.executionprojet.fr/wp-content/uploads/2017/09/Bureauvitré.jpg");
-    padding: 120px 0px 120px 0px;
+    padding: 170px 0px 180px 0px;
 }
 
 .home-page .section-entreprise {
@@ -463,7 +463,11 @@ body {
     padding:5px 15px 20px 15px;
 }
 
-.home-page article .entry-meta span {
+article .entry-meta {
+    margin-bottom: 10px;
+}
+
+article .entry-meta span {
     /* background: #604A95; */
     /* opacity: 0.7; */
     padding: 2px 5px;
@@ -472,16 +476,15 @@ body {
     font-size: 14px;
 }
 
-.home-page article .entry-meta span:hover {
+article .entry-meta span:hover {
     box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 }
 
-.home-page article .entry-meta span.date-links {
-    /* background: #00AEED; */
+article .entry-meta span.date-links {
     border-bottom-color: #00AEED;
 }
 
-.home-page article .entry-meta span a {
+article .entry-meta span a {
     color: #000;
     text-decoration: none
 }
@@ -611,11 +614,220 @@ body {
 }
 
 
+/****************************************
+
+        Modification de l'apparence general des articles 
+
+*****************************************/
+
+article.post .featured-image {
+    margin-top: 5px;
+}
+
+article.post .entry-content {
+    font-size: 18px;
+}
+
+article.post h1 {
+    border-bottom: 2px solid #F8931F;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 20px;
+}
+
+article.post h2 {
+    border-bottom: 2px solid #00AEED;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+article.post h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 0.5em;
+}
+
+article.post p {
+    margin-bottom: 1.2em;
+    line-height: 1.3em;
+    padding-left: 15px;
+    font-size: inherit;
+}
+
+article.post ul {
+    list-style: disc;
+    margin-left: 45px;
+    margin-bottom: 1.2em;
+    font-size: inherit;
+    line-height: 1.5em;
+}
+
+article.post .entry-content a,
+article.post .entry-content a:visited {
+    color:#604A95;
+    font-weight: 400;
+}
+
+article.post .entry-content a:hover {
+    color:#4F3D7A;
+    text-decoration: none
+}
+
+article.post .list-intro {
+    padding-left: 0px;
+    margin-bottom: 0.2em
+}
+
+article.post .entry-content b {
+    font-weight: 400;
+}
+
+article.post .exemple {
+    color: #31708f;
+    background-color: #d9edf7;
+    padding: 15px;
+    border-left: 5px solid #bcdff1;
+    position: relative;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+article.post .exemple p {
+    margin-bottom: 0px;
+}
+
+article.post .exemple .exemple-intro {
+    font-weight: 400;
+    margin-bottom: 5px;
+    padding-left: 0px;
+}
 
 
 /****************************************
 
-        Modification des custom post de la page d'acceuil 
+Modification de l'apparence des commentaires generaux 
+
+*****************************************/
+
+#comments .comments-title,
+#comments .comment-respond h3 {
+    border-bottom: 2px solid #00AEED;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+#comments .theChampCommentingTabs ul {
+    float: none;
+    padding-left: 10px;
+}
+
+#comments li .comment-title {
+    border-bottom: 2px solid #604A95;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+#comments li.depth-1 .comment-title {
+    border-bottom: 2px solid #604A95;
+}
+
+#comments li.depth-2 .comment-title {
+    border-bottom: 2px solid #F8931F;
+}
+
+#comments li.depth-3 .comment-title {
+    border-bottom: 2px solid #00AEED;
+}
+
+#comments li .comment-title .comment-author {
+    font-weight: 400;
+}
+
+#comments li .edit-link {
+    display: inline-block;
+    color : #000;
+    text-decoration: none
+}
+
+#comments li .edit-link a,
+#comments li .edit-link a:visited, 
+#comments li .edit-link a:hover {
+    color : inherit;
+    text-decoration: inherit;
+}
+
+#comments li .edit-link a:hover {
+    font-weight: 400;
+}
+
+#comments li .reply {
+    text-align: right;
+}
+
+#comments li .reply a {
+    padding: 5px;
+    border-radius: 0px;
+}
+
+#comments li .comment-content p {
+    margin-bottom: 5px;
+    padding-left : 15px;
+}
+
+/****************************************
+
+Ajout des elements de style des liens de partage 
+
+*****************************************/
+
+.social {
+    margin-top: 15px;
+}
+
+.social span {
+    vertical-align: baseline !important;
+}
+
+.social .social-intro {
+    margin-right: 20px;
+    border-bottom: 1px solid #00AEED;
+    vertical-align: top !important;
+}
+
+.social .fb-like {
+    height: 20px;
+}
+
+.social .email-share a {
+    display: inline-block;
+	background: #79C8E8;
+	height: 20px;
+    color: #FFF;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.social .email-share a span {
+    padding: 0px 7px;
+}
+
+/****************************************
+
+Modification des custom post de la page d'acceuil 
 
 *****************************************/
 
@@ -721,7 +933,8 @@ section h1.right {
     text-align: right;
 }
 
-.calltoaction-buton a {
+.calltoaction-buton a,
+.calltoaction-button a{
     font-size: 15px;
     font-weight: 500;
     padding: 12px 24px;   
@@ -742,25 +955,29 @@ section h1.right {
     line-height: 1;
 }
 
-.calltoaction-buton.orange a {
+.calltoaction-buton.orange a,
+.calltoaction-button.orange a {
     background-color: #F8931F;
     color: #FFF;
     border-color: #F8931F;
 }
 
-.calltoaction-buton.orange a:hover {
+.calltoaction-buton.orange a:hover,
+.calltoaction-button.orange a:hover {
     color: #F8931F;
     border: 2px solid #F8931F;
     background-color: rgba(248, 147, 31, 0);
 }
 
-.calltoaction-buton.cyan a {
+.calltoaction-buton.cyan a,
+.calltoaction-button.cyan a {
     background-color: #00AEED;
     color: #FFF;
     border-color: #00AEED;
 }
 
-.calltoaction-buton.cyan a:hover {
+.calltoaction-buton.cyan a:hover,
+.calltoaction-button.cyan a:hover {
     color: #00AEED;
     border: 2px solid #00AEED;
     background-color: rgba(248, 147, 31, 0);
@@ -1414,9 +1631,25 @@ Complement pour la page de description du cours CoursePress.
     font-size: 30px;
 }
 
+.entry-content-excerpt,
+.course-video, 
+.course-social-share {
+    position:initial;
+    display:inline-block;
+}
+
+
+.entry-content-excerpt, 
+.entry-content-excerpt p{
+    max-height: none;
+}
+
 .entry-content-excerpt .quick-course-info {
     border-top-color: #604A95;
     padding-top: 10px;
+    position: initial;
+    bottom:initial;
+    float:initial;
 }
 
 .single-course a.apply-button-enrolled {
@@ -1668,7 +1901,10 @@ button[type="submit"].apply-button {
 .course-structure-block .module-title a {
     color: #FFF;
     font-size: 18px;
-    
+}
+
+.course-structure-block .module-title span {
+    font-size: 18px;
 }
 
 .course-structure-block .module-title:before {
@@ -2329,6 +2565,20 @@ button[type="submit"].apply-button {
     -webkit-appearance: initial; 
 }
 
+/***** Résolution probleme questions qui vont à la ligne apres la checkbos quand elles sont trop longues */ 
+.cp .module-elements li label {
+    display: inline;
+}
+
+/* Supression des bulets qui s'ajoutenet en plus des checkbox pour les questions */
+.cp .focus-wrapper .focus-main ul {
+    list-style: none;
+}
+
+/* Fix pour la fenetre modal qui s'affiche hors de l'ecran */ 
+.cp-mask {
+    position: fixed;
+}
 
 /***************************************************
 
@@ -2486,3 +2736,72 @@ select.units_dropdown {
     color: #604a95;
     display:none;
 }
+
+
+/********************************************************/
+
+/***********            WooCommerce            **********/
+
+/********************************************************/
+
+#add_payment_method .wc-proceed-to-checkout a.checkout-button, 
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button, 
+.woocommerce-checkout .wc-proceed-to-checkout a.checkout-button{
+    -webkit-appearance: unset;
+}
+
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover {
+    background-color: #00bbff;
+}
+
+.woocommerce #respond input#submit.alt, 
+.woocommerce a.button.alt, 
+.woocommerce button.button.alt, 
+.woocommerce input.button.alt {
+    background-color: #00AEED;
+}
+
+.woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover {
+    background-color: #90CAE2;
+}
+
+.woocommerce span.onsale {
+    background-color: #F8931F;
+}
+
+/************   Cart page    ***************/
+
+.woocommerce table.shop_table .product-quantity {
+    width: 80px;
+}
+
+.woocommerce table.shop_table .product-price,
+.woocommerce table.shop_table .product-subtotal {
+    width: 100px;
+}
+
+#add_payment_method table.cart .product-thumbnail, 
+.woocommerce-cart table.cart .product-thumbnail, 
+.woocommerce-checkout table.cart .product-thumbnail {
+    width: 32px;
+}
+
+.woocommerce table.shop_table .product-remove {
+    width:50px;
+}
+
+
+.woocommerce .cart-collaterals .cart_totals h2, 
+.woocommerce-page .cart-collaterals .cart_totals h2 {
+    display: initial;
+    border-bottom: 2px solid #00AEED;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-bottom: 5px;
+}
+
+
+

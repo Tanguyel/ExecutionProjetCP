@@ -82,7 +82,7 @@
 		endif;
 */
 		edit_post_link(
-			__( ' / Edit', 'cp' ),
+			__( 'Edit', 'cp' ),
 			'<span class="edit-link">',
 			'</span>'
 		);

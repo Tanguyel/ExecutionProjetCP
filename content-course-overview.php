@@ -44,18 +44,11 @@
 				<?php echo do_shortcode( '[course_join_button]' ); ?>
 			</div>
 		</div>
-	</section>
-
-	<section id="additional-summary">
-		<div class="social-shares">
-			<span>
-				<?php _e( 'SHARE', 'cp' ); ?>
-			</span>
-			<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php the_permalink(); ?>&p[images][0]=&p[title]=<?php the_title(); ?>&p[summary]=<?php echo urlencode( strip_tags( get_the_excerpt() ) ); ?>" class="facebook-share" target="_blank"></a>
-			<a href="http://twitter.com/home?status=<?php the_title(); ?> <?php the_permalink(); ?>" class="twitter-share" target="_blank"></a>
-			<a href="https://plus.google.com/share?url=<?php the_permalink(); ?>" class="google-share" target="_blank"></a>
-			<a href="mailto:?subject=<?php the_title(); ?>&body=<?php echo strip_tags( get_the_excerpt() ); ?>" target="_top" class="email-share"></a>
-		</div><!--social shares-->
+        <div class="course-social-share">
+            <?php 
+            ep_socialshare( 'course' );
+            ?>
+        </div>
 	</section>
 
 	<br clear="all" />

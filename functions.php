@@ -44,7 +44,29 @@ add_action( 'widgets_init', 'executionprojet_widgets_init' );
 if ( ! function_exists( 'executionprojet_widgets_init' ) ) :
 
 	function executionprojet_widgets_init() {
-		register_sidebar(
+        register_sidebar(
+            array(
+				'name' => __( 'Home Footer', 'cp' ),
+				'id' => 'home-footer',
+                'description' => __( 'Footer section de la page d\'acceuil avec trois emplacement pour des widgets' ),
+				'before_widget' => '<div id="%1$s" class="widget home-footer-widget %2$s">',
+				'after_widget' => '</div>',
+				'before_title' => '<h3 class="widget-title">',
+				'after_title' => '</h3>',
+			)
+        );
+        register_sidebar(
+            array(
+				'name' => __( 'Home Sidebar', 'cp' ),
+				'id' => 'home-sidebar',
+                'description' => __( 'Side bar of the home page' ),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget' => '</aside>',
+				'before_title' => '<h1 class="widget-title">',
+				'after_title' => '</h1>',
+			)
+        );
+        register_sidebar(
 			array(
 				'name' => __( 'Course Sidebar', 'cp' ),
 				'id' => 'course-sidebar',
@@ -68,20 +90,9 @@ if ( ! function_exists( 'executionprojet_widgets_init' ) ) :
         );
         register_sidebar(
             array(
-				'name' => __( 'Home Footer', 'cp' ),
-				'id' => 'home-footer',
-                'description' => __( 'Footer section de la page d\'acceuil avec trois emplacement pour des widgets' ),
-				'before_widget' => '<div id="%1$s" class="widget home-footer-widget %2$s">',
-				'after_widget' => '</div>',
-				'before_title' => '<h3 class="widget-title">',
-				'after_title' => '</h3>',
-			)
-        );
-        register_sidebar(
-            array(
-				'name' => __( 'Home Sidebar', 'cp' ),
-				'id' => 'home-sidebar',
-                'description' => __( 'Side bar retractable avec menu et programe du cours' ),
+				'name' => __( 'WooCommerce Sidebar', 'cp' ),
+				'id' => 'woocommerce-sidebar',
+                'description' => __( 'Side bar for the WooCommerce pages' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget' => '</aside>',
 				'before_title' => '<h1 class="widget-title">',
@@ -93,21 +104,26 @@ endif;
 
 function EP_scripts() {
     wp_enqueue_script( 'tarteaucitron', '/tarteaucitron/tarteaucitron.js' );
+    wp_enqueue_style( 'font-awesome', get_stylesheet_directory_uri() . '/font-awesome/css/font-awesome.min.css' );
+    wp_enqueue_style( 'google_fonts_Raleway', 'https://fonts.googleapis.com/css?family=Raleway' );
+    wp_enqueue_style( 'google_fonts_SourceSansPro', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro' );
+    wp_dequeue_style( 'google_fonts_lato' );
+    wp_dequeue_style( 'google_fonts_dosis' );
 }
 
 
 
+add_action( 'wp_enqueue_scripts', 'EP_scripts', 100 );
 
-add_action( 'wp_enqueue_scripts', 'EP_scripts' );
-add_shortcode(
-			'course_unit_archive_sidesubmenu',
-			'course_unit_archive_sidesubmenu');
+add_shortcode( 'course_unit_archive_sidesubmenu', 'course_unit_archive_sidesubmenu');
 
 //empêcher l'éditeur wysiwyg d'ajouter des balises <p> et <br> :
 //sur les fichiers 'content'
 remove_filter( 'the_content', 'wpautop' );
 //sur les fichiers 'exerpt'
 remove_filter( 'the_excerpt', 'wpautop' );
+
+
 
 
 //enleve la colorisation des titres par CoursePress
@@ -122,7 +138,6 @@ if ( ! function_exists( 'coursepress_colorize_title' ) ) :
 endif;
 
 
-
 if ( function_exists( 'add_theme_support' ) ) { 
     add_theme_support( 'post-thumbnails' );
     // additional image sizes
@@ -131,84 +146,223 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 add_image_size( 'home-thumbnail', 180, 180, true ); 
 
+add_action( 'after_setup_theme', 'woocommerce_support' );
+function woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}
+
 function course_unit_archive_sidesubmenu( $atts ) {
-		extract( shortcode_atts(
-			array(
-				'course_id' => CoursePress_Helper_Utility::the_course( true ),
-			),
-			$atts,
-			'course_unit_archive_submenu'
-		) );
+    extract( shortcode_atts(
+        array(
+            'course_id' => CoursePress_Helper_Utility::the_course( true ),
+        ),
+        $atts,
+        'course_unit_archive_submenu'
+    ) );
 
-		$course_id = (int) $course_id;
+    $course_id = (int) $course_id;
 
-		if ( empty( $course_id ) ) { return ''; }
+    if ( empty( $course_id ) ) { return ''; }
 
-		$subpage = CoursePress_Helper_Utility::the_course_subpage();
-		$course_status = get_post_status( $course_id );
-		$course_base_url = CoursePress_Data_Course::get_course_url( $course_id );
-        $course_structure = do_shortcode( '[course_structure course_id="' . $course_id . '" free_show="false" label=""]' );
-    
-		$content = '
-		<div class="submenu-main-container cp-submenu">
-			<ul id="submenu-main" class="submenu nav-submenu">
-				<li class="submenu-item submenu-units ' . ( 'units' == $subpage ? 'submenu-active' : '' ) . '">
-                    <input type="checkbox"/><span class="icon"></span>
-                        <a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'unit/' ) ) . '" class="course-units-link">' . esc_html__( 'Units', 'cp' ) . '</a>
-                        ' . $course_structure . '
-                        </li>
-		';
+    $subpage = CoursePress_Helper_Utility::the_course_subpage();
+    $course_status = get_post_status( $course_id );
+    $course_base_url = CoursePress_Data_Course::get_course_url( $course_id );
+    $course_structure = do_shortcode( '[course_structure course_id="' . $course_id . '" free_show="false" label=""]' );
 
-		$student_id = is_user_logged_in() ? get_current_user_id() : false;
-		$enrolled = ! empty( $student_id ) ? CoursePress_Data_Course::student_enrolled( $student_id, $course_id ) : false;
-		$instructors = CoursePress_Data_Course::get_instructors( $course_id );
-		$is_instructor = in_array( $student_id, $instructors );
+    $content = '
+    <div class="submenu-main-container cp-submenu">
+        <ul id="submenu-main" class="submenu nav-submenu">
+            <li class="submenu-item submenu-units ' . ( 'units' == $subpage ? 'submenu-active' : '' ) . '">
+                <input type="checkbox"/><span class="icon"></span>
+                    <a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'unit/' ) ) . '" class="course-units-link">' . esc_html__( 'Units', 'cp' ) . '</a>
+                    ' . $course_structure . '
+                    </li>
+    ';
+
+    $student_id = is_user_logged_in() ? get_current_user_id() : false;
+    $enrolled = ! empty( $student_id ) ? CoursePress_Data_Course::student_enrolled( $student_id, $course_id ) : false;
+    $instructors = CoursePress_Data_Course::get_instructors( $course_id );
+    $is_instructor = in_array( $student_id, $instructors );
 
 
-		if ( $enrolled || $is_instructor ) {
-			$content .= '
-				<li class="submenu-item submenu-notifications ' . ( 'notifications' == $subpage ? 'submenu-active' : '' ) . '"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'notification' ) ) . '">' . esc_html__( 'Notifications', 'cp' ) . '</a></li>
-			';
-		}
+    if ( $enrolled || $is_instructor ) {
+        $content .= '
+            <li class="submenu-item submenu-notifications ' . ( 'notifications' == $subpage ? 'submenu-active' : '' ) . '"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'notification' ) ) . '">' . esc_html__( 'Notifications', 'cp' ) . '</a></li>
+        ';
+    }
 
-		$pages = CoursePress_Data_Course::allow_pages( $course_id );
+    $pages = CoursePress_Data_Course::allow_pages( $course_id );
 
-		if ( $pages['course_discussion'] && ( $enrolled || $is_instructor ) ) {
-			$content .= '<li class="submenu-item submenu-discussions ' . ( 'discussions' == $subpage ? 'submenu-active' : '' ) . '"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'discussion' ) ) . '">' . esc_html__( 'Discussions', 'cp' ) . '</a></li>';
-		}
+    if ( $pages['course_discussion'] && ( $enrolled || $is_instructor ) ) {
+        $content .= '<li class="submenu-item submenu-discussions ' . ( 'discussions' == $subpage ? 'submenu-active' : '' ) . '"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'discussion' ) ) . '">' . esc_html__( 'Discussions', 'cp' ) . '</a></li>';
+    }
 
-		if ( $pages['workbook'] && $enrolled ) {
-			$content .= '<li class="submenu-item submenu-workbook ' . ( 'workbook' == $subpage ? 'submenu-active' : '' ) . '"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'workbook' ) ) . '">' . esc_html__( 'Workbook', 'cp' ) . '</a></li>';
-		}
+    if ( $pages['workbook'] && $enrolled ) {
+        $content .= '<li class="submenu-item submenu-workbook ' . ( 'workbook' == $subpage ? 'submenu-active' : '' ) . '"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'workbook' ) ) . '">' . esc_html__( 'Workbook', 'cp' ) . '</a></li>';
+    }
 
-		if ( $pages['grades'] && $enrolled ) {
-			$content .= '<li class="submenu-item submenu-grades ' . ( 'grades' == $subpage ? 'submenu-active' : '' ) . '"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'grades' ) ) . '">' . esc_html__( 'Grades', 'cp' ) . '</a></li>';
-		}
+    if ( $pages['grades'] && $enrolled ) {
+        $content .= '<li class="submenu-item submenu-grades ' . ( 'grades' == $subpage ? 'submenu-active' : '' ) . '"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'grades' ) ) . '">' . esc_html__( 'Grades', 'cp' ) . '</a></li>';
+    }
 
-		$content .= '<li class="submenu-item submenu-info"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url ) . '">' . esc_html__( 'Course Details', 'cp' ) . '</a></li>';
+    $content .= '<li class="submenu-item submenu-info"><span class="icon"></span><a href="' . esc_url_raw( $course_base_url ) . '">' . esc_html__( 'Course Details', 'cp' ) . '</a></li>';
 
-		$show_link = false;
+    $show_link = false;
 
-        $show_link = CoursePress_Data_Certificate::is_enabled() && CoursePress_Data_Student::is_enrolled_in_course( $student_id, $course_id );
+    $show_link = CoursePress_Data_Certificate::is_enabled() && CoursePress_Data_Student::is_enrolled_in_course( $student_id, $course_id );
 
-		if ( is_user_logged_in() && $show_link ) {
-			// COMPLETION LOGIC.
-			if ( CoursePress_Data_Student::is_course_complete( get_current_user_id(), $course_id ) ) {
-				$certificate = CoursePress_Data_Certificate::get_certificate_link( get_current_user_id(), $course_id, __( 'Certificate', 'cp' ) );
+    if ( is_user_logged_in() && $show_link ) {
+        // COMPLETION LOGIC.
+        if ( CoursePress_Data_Student::is_course_complete( get_current_user_id(), $course_id ) ) {
+            $certificate = CoursePress_Data_Certificate::get_certificate_link( get_current_user_id(), $course_id, __( 'Certificate', 'cp' ) );
 
-				$content .= '<li class="submenu-item submenu-certificate ' . ( 'certificate' == $subpage ? 'submenu-active' : '') . '"><span class="icon"></span>' . $certificate . '</li>';
-			}
-		}
+            $content .= '<li class="submenu-item submenu-certificate ' . ( 'certificate' == $subpage ? 'submenu-active' : '') . '"><span class="icon"></span>' . $certificate . '</li>';
+        }
+    }
 
-		$content .= '
-			</ul>
-		</div>
-		';
+    $content .= '
+        </ul>
+    </div>
+    ';
 
-		return $content;
+    return $content;
+}
+
+
+
+if ( ! function_exists( 'coursepress_comment' ) ) :
+
+	/**
+	 * Template for comments and pingbacks.
+	 *
+	 * Used as a callback by wp_list_comments() for displaying the comments.
+	 */
+	function coursepress_comment( $comment, $args, $depth ) {
+		$GLOBALS['comment'] = $comment;
+
+		if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
+
+			<li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
+				<div class="comment-body">
+					<?php
+					esc_html_e( 'Pingback:', 'cp' );
+					comment_author_link();
+					edit_comment_link(
+						__( 'Edit', 'cp' ),
+						'<span class="edit-link">',
+						'</span>'
+					);
+					?>
+				</div>
+			</li>
+
+		<?php else : ?>
+
+			<?php $class = empty( $args['has_children'] ) ? '' : 'parent'; ?>
+			<li id="comment-<?php comment_ID(); ?>" <?php comment_class( $class ); ?>>
+				<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+					<header class="comment-meta">
+                        <div class="comment-title">
+				            <span class="comment-author"><?php echo get_comment_author_link() ?></span>
+                            <span><?php echo __( ' le ' ) ?></span>
+                            <span class="comment-date">
+                                <time datetime="<?php comment_time( 'c' ); ?>">
+                                    <?php
+                                    printf(
+                                        get_comment_date()
+                                    );
+                                    ?>
+                                </time>
+                            </span><!-- .comment-date -->
+                            <span><?php echo ' : ' ?></span>
+                        </div>
+                        <?php
+                        edit_comment_link(
+                            esc_html__( 'Edit', 'cp' ),
+                            '<div class="edit-link">',
+                            '</div>'
+                        );
+                        ?>
+
+                        <?php if ( '0' == $comment->comment_approved ) : ?>
+                            <p class="comment-awaiting-moderation">
+                                <?php esc_html_e( 'Your comment is awaiting moderation.', 'cp' ); ?>
+                            </p>
+                        <?php endif; ?>
+					</header><!-- .comment-meta -->
+                    <?php
+							if ( 0 != $args['avatar_size'] ) {
+								echo get_avatar( $comment, $args['avatar_size'] );
+							}
+                    ?>
+					<div class="comment-content">
+						<?php comment_text(); ?>
+					</div><!-- .comment-content -->
+
+					<?php
+					comment_reply_link(
+						array_merge(
+							$args,
+							array(
+								'add_below' => 'div-comment',
+								'depth' => $depth,
+								'max_depth' => $args['max_depth'],
+								'before' => '<div class="reply calltoaction-buton cyan">',
+								'after' => '</div>',
+							)
+						)
+					);
+					?>
+				</article><!-- .comment-body -->
+			</li>
+		<?php
+		endif;
 	}
+endif; // ends check for coursepress_comment()
 
 
+if ( ! function_exists( 'ep_socialshare' ) ) :
+    
+    function ep_socialshare( $type='clasic' ) {
+        
+        
+        if ( $type == 'course') {
+            $mail_content = __( 'Regarde la formation que j\'ai trouvé, je pense que cela peut t\'interesé. %0D%0A %0D%0A / %0D%0A %0D%0A' , 'cp') ;
+            $mail_content .= __( 'J\'ai trouvé cette formation en ligne en management de projet, je souhaitrerais m\'y inscrire. %0D%0A Pouvons nous en discuter ? ');
+            $mail_content .= '%0D%0A %0D%0A' ;
+            $mail_content .= __( 'Voici le lien : ') ; 
+            $mail_content .= get_the_permalink();
+            
+            $mail_title = __( 'J\'ai trouvé cette formation : ' , 'cp' );
+            $mail_title .= get_the_title();
+            
+        } else {
+            $mail_content = __( 'Regarde ce que j\'ai trouvé, je pense que cela peut t\'interesé. ' , 'cp' );
+            $mail_content .= '%0D%0A %0D%0A' ;
+            $mail_content .= __( 'Voici le lien : ') ; 
+            $mail_content .= get_the_permalink();
+            
+            $mail_title = __( 'J\'ai trouvé ca : ' , 'cp' );
+            $mail_title .= get_the_title();
+        }
+
+        
+            
+        ?>
+        <div class="social">
+			<span class="social-intro">
+				<?php _e( 'Share the love : ', 'cp' ); ?>
+			</span>
+            <div class="fb-like" data-layout="button_count" data-action="like" data-share="true"></div>
+            <span class="tacLinkedin"></span><script type="IN/Share" data-counter="right"></script>
+            <span class="tacTwitter"></span>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-via="twitter_username" data-count="horizontal" data-dnt="true"></a>
+            <span class="email-share"><a href="mailto:?subject=<?php echo $mail_title; ?>&body=<?php echo $mail_content; ?>" target="_top" class="email-share"><i class="fa fa-envelope-o" aria-hidden="true"></i><span><?php _e( 'Mail', 'cp' ); ?></span></a></span>
+        </div>
+        <?php
+        return;
+    }
+endif;
 
 /*
 function register_cp_widget_help() {

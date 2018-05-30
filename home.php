@@ -20,7 +20,7 @@ get_header();
         <section data-id="wewycxg" class="top-section section-hero hero-display ">
             <div class="section-overlay hero-section-overlay"></div>
             <div data-id="wlzbsxu" class="section-title hero-section-title" data-element_type="heading.default">
-                <h1 class="hero-title">Développez vos connaissances en management de projet grace à nos formations gratuites
+                <h1 class="hero-title">Développez vos connaissances en management de projet grâce à nos formations gratuites
                 </h1>
             </div>
             <div data-id="uslpujc" class="section-button hero-section-button" data-element_type="button.default">
@@ -80,8 +80,8 @@ get_header();
             </div>
             <div class="section-text entreprise-section-text">
 				<ul data-id="usiwxsh" class="">
-					<li class="">Formation à distance et pressentiel&nbsp;</li>
-                    <li class="" >Développement de formations interne</li>
+					<li class="">Formation à distance et presentiel&nbsp;</li>
+                    <li class="" >Développement de formations internes</li>
                     <li class="" >Conseil</li>
 				</ul>
             </div>
