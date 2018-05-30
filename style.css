@@ -5,8 +5,8 @@ Description:  Theme for the ExecutionProjet.fr site based on CoursePress Theme
 Author: Tanguy El Mouahidine
 Author URI: 
 Template: coursepress
-Version: 0.0.6
-Date: 31/01/2018
+Version: 0.0.7
+Date: 02/05/2018
 Tags: course, courses, learning, teaching, training, e-learning, e-commerce
 */
 
@@ -785,6 +785,48 @@ Modification de l'apparence des commentaires generaux
     padding-left : 15px;
 }
 
+
+/********************************************
+
+Modification du Footer géneral pour l'espace contact
+
+**********************************************/
+
+
+#third.widget-area .widget {
+    width: 100%;
+    margin-left: initial;
+    max-width: 100%;
+}
+
+
+
+input[type="tel"]{
+    padding:10px;
+    color: #666;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+}
+
+#footercontact input,
+#footercontact textarea {
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    padding:10px;
+}
+
+.fcontactg{
+    width: 48%;
+    float: left
+}
+.fcontactd{
+    width: 48%;
+    float: right
+}
+
+
 /****************************************
 
 Ajout des elements de style des liens de partage 
@@ -934,7 +976,9 @@ section h1.right {
 }
 
 .calltoaction-buton a,
-.calltoaction-button a{
+.calltoaction-button a,
+.calltoaction-button button, 
+.calltoaction-button input[type="submit"] {
     font-size: 15px;
     font-weight: 500;
     padding: 12px 24px;   
@@ -953,39 +997,114 @@ section h1.right {
     text-decoration: none;
     display: inline-block;
     line-height: 1;
+    box-shadow: none;
+    -webkit-appearance: initial;
+    text-shadow: none;
+}
+
+.calltoaction-button.full a,
+.calltoaction-button.full button,
+.calltoaction-button.full input[type="submit"] {
+    width:100%;
+    border-radius: 0px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.calltoaction-button a i.fa,
+.calltoaction-button button i.fa {
+    margin-right: 15px;
+}
+
+.calltoaction-button.full {
+    margin: 10px 0px;
 }
 
 .calltoaction-buton.orange a,
-.calltoaction-button.orange a {
+.calltoaction-button.orange a,
+.calltoaction-button.orange button,
+.calltoaction-button.orange input[type="submit"] {
     background-color: #F8931F;
     color: #FFF;
     border-color: #F8931F;
 }
 
 .calltoaction-buton.orange a:hover,
-.calltoaction-button.orange a:hover {
+.calltoaction-button.orange a:hover,
+.calltoaction-button.orange button:hover,
+.calltoaction-button.orange input[type="submit"]:hover {
     color: #F8931F;
     border: 2px solid #F8931F;
     background-color: rgba(248, 147, 31, 0);
 }
 
 .calltoaction-buton.cyan a,
-.calltoaction-button.cyan a {
+.calltoaction-button.cyan a,
+.calltoaction-button.cyan button,
+.calltoaction-button.cyan input[type="submit"] {
     background-color: #00AEED;
     color: #FFF;
     border-color: #00AEED;
 }
 
 .calltoaction-buton.cyan a:hover,
-.calltoaction-button.cyan a:hover {
+.calltoaction-button.cyan a:hover,
+.calltoaction-button.cyan button:hover,
+.calltoaction-button.cyan input[type="submit"]:hover {
     color: #00AEED;
     border: 2px solid #00AEED;
+    background-color: rgba(248, 147, 31, 0);
+}
+
+.calltoaction-buton.violet a,
+.calltoaction-button.violet a,
+.calltoaction-button.violet button,
+.calltoaction-button.violet input[type="submit"]:hover {
+    background-color: #604A95;
+    color: #FFF;
+    border-color: #604A95;
+}
+
+.calltoaction-buton.violet a:hover,
+.calltoaction-button.violet a:hover,
+.calltoaction-button.violet button:hover,
+.calltoaction-button.violet input[type="submit"]:hover {
+    color: #604A95;
+    border: 2px solid #604A95;
     background-color: rgba(248, 147, 31, 0);
 }
 
 .center {
     text-align: center
 }
+
+blockquote {
+    color: inherit;
+    background-color: #d9edf7;
+    padding: 15px;
+    border-left: 5px solid #bcdff1;
+    position: relative;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+blockquote p {
+    display:inline;
+    color:inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0px;
+    border: 0px;
+}
+
+blockquote ul {
+    list-style: disc;
+}
+
+
 
 
 /* Section Entreprise */
@@ -1090,7 +1209,7 @@ li .fa{
     padding: 5px 20px;
 }
 
-/* Mise en forme general des select */
+/* Mise en forme general des selects */
 
 .select {
     position: relative;
@@ -1634,11 +1753,19 @@ Complement pour la page de description du cours CoursePress.
 .entry-content-excerpt,
 .course-video, 
 .course-social-share {
-    position:initial;
+    /*position:initial;*/
     display:inline-block;
 }
 
-
+/*
+.course-video .video_player iframe {
+    position: inherit; 
+    top: inherit; 
+    left: inherit;
+    width: inherit;
+    height: inherit; 
+}
+*/
 .entry-content-excerpt, 
 .entry-content-excerpt p{
     max-height: none;
@@ -1690,6 +1817,136 @@ button[type="submit"].apply-button {
     font-weight: 300;
 }
 */
+
+
+
+.course .course_objectives li:before, 
+.course .course_resources li:before, 
+.course .course_prerequisites li:before {
+    content: "\f061";
+    display: inline-block;
+    font: normal normal normal 14px / 1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    left: -10px;
+    position: relative;
+}
+
+/***** Fenetre modal pour telecharger le programme ******/
+
+/* Full-width input fields */
+#DLPopUp input[type=text],
+#DLPopUp input[type=email] {
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#DLPopUp input[type=submit] {
+    margin-bottom: 0px;
+}
+
+/* Center the image and position the close button */
+#DLPopUp .imgcontainer {
+    text-align: center;
+    margin: 15px 0 0px 0;
+    position: relative;
+}
+
+#DLPopUp .image {
+    width: 40%;
+    /*border-radius: 50%;*/
+    background: #00AEED;
+    color:#FFF;
+    font-size: 80px;
+}
+
+#DLPopUp .image i {
+    padding: 20px;
+}
+
+#DLPopUp .formDlProg {
+    padding: 16px;
+}
+
+#DLPopUp .altDL {
+    text-align: center;
+    padding: 16px;
+}
+
+/* The Modal (background) */
+.modalDLPopUp {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    max-width: 400px
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .modal-content {
+        width: 90%;
+    }
+}
+
+
+
+
 /***************************************************
 
             Apparence de la structure du cours
@@ -1735,8 +1992,8 @@ button[type="submit"].apply-button {
 }
 
 .course-structure-block .unit .fold:before {
-    border: 2px solid #FFF;
-    color: #FFF;
+    border: 2px solid #00AEED;
+    color: #00AEED;
     content: '\f140';
     font-family: 'Dashicons';
     font-size: 20px;
@@ -1757,20 +2014,28 @@ button[type="submit"].apply-button {
 }
 
 .course-structure-block .unit-title-wrapper {
-    background: rgba(0, 174, 237, 0.8);
+   /* background: rgba(0, 174, 237, 0.8);
     opacity: 50%;
     color: #fff;
-    border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0; */
     position: relative;
+    border-bottom: 2px solid #00AEED;
 }
 
-.course-structure-block .unit-title-wrapper:hover {
-    background: rgba(0, 174, 237, 1);
+.course-structure-block .unit-title-wrapper:hover a {
+    color: #00AEED;
 }
 
 
-.course-structure-block .unit-title  a, .course-structure-block .unit-link  a  {
-    color: #fff
+.course-structure-block .unit-title  a, .course-structure-block .unit-link  a {
+    color: #000;
+    font-weight: 300;
+    font-family: 'raleway', 'source sans pro', sans-serif;
+    font-size: 22px;
+}
+
+.course-structure-block .unit-title  a:hover, .course-structure-block .unit-link  a:hover {
+    text-decoration: none;
 }
 /*
 .course-structure-block .unit-link {
@@ -1790,30 +2055,36 @@ button[type="submit"].apply-button {
 /*****  SECTION *****/
 
 .course-structure-block .tree .unit-page-title-wrapper {
-    padding: 15px 50px 15px 40px;
+    padding: 10px 50px 5px 20px;
     color: #000;
-    background: rgba(0, 174, 237, 0.4);
+    /*background: rgba(0, 174, 237, 0.4);
     border-radius: 4px 4px 0 0;
-    font-weight: 500;
-    line-height: 20px
+    font-weight: 500;*/
+    line-height: 20px;
+    border-bottom: 2px solid #604A95;
 }
 
-.course-structure-block ul.tree > li.unit .unit-page-title-wrapper:hover {
-    background: rgba(0, 174, 237, 0.6)
+.course-structure-block ul.tree > li.unit .unit-page-title-wrapper:hover a {
+    color: #604A95;
 }
 
 @media (min-width: 400px) {
     .course-structure-block  .tree .unit-page-title-wrapper {
         padding-right: 50px;
-        padding-left: 70px
     }
 }
 
 .course-structure-block .tree .unit-page-title-wrapper a {
     color: #000;
-    font-weight: 500;
-    line-height: 20px
+    line-height: 20px;
+    font-weight: 300;
+    font-family: 'raleway', 'source sans pro', sans-serif;
+    font-size: 20px;
 }
+.course-structure-block .tree .unit-page-title-wrapper a:hover {
+    text-decoration: none;
+}
+
 
 .course-structure-block .student-not-enroled .unit-page-title-wrapper {
     cursor: inherit
@@ -1898,6 +2169,12 @@ button[type="submit"].apply-button {
 }
 
 /*  Fin  Preview Buton */
+
+.course-structure-block .module-title {
+    font-size: 20px;
+    padding-bottom: 0px;
+}
+
 .course-structure-block .module-title a {
     color: #FFF;
     font-size: 18px;
@@ -1912,9 +2189,10 @@ button[type="submit"].apply-button {
     font-family: dashicons;
     font-weight: 100;
     font-size: 21px;
-    margin: 5px 0px 0px -30px;
+    margin: 2px 0px 0px 0px;
     position: absolute
 }
+
 
 .course-structure-block .text .module-title:before {
     content: "\f491"
@@ -2003,33 +2281,27 @@ button[type="submit"].apply-button {
     position: relative
 }
 
-.course-structure-block ul.tree > li.unit:first-child .unit-title span,
-.course-structure-block ul.tree > li.unit:first-child .unit-title a {
-    border-radius: 4px 4px 0 0
-}
 
-.course-structure-block ul.tree > li.unit:last-child .unit-title span, .course-structure-block ul.tree > li.unit:last-child .unit-title a {
-    border-radius: 0 0 4px 4px
-}
-
-.course-structure-block ul.tree > li.unit > ul {
-    border-radius: 0
-}
 
 .course-structure-block ul.tree > li.unit ul.page-modules li .unit-page-module-wrapper {
-    padding: 0px 50px 0px 70px;
-    background: rgba(0, 174, 237, 0);
+    padding: 0px 50px 0px 10px;
     color: #000;
+    border-bottom: 2px solid rgba(248, 147, 31, 0);
+    
 }
 
 .course-structure-block ul.tree > li.unit ul.page-modules li .unit-page-module-wrapper:hover {
-    background: rgba(0, 174, 237, 0.4)
+    border-bottom: 2px solid #F8931F;
 }
 
 .course-structure-block ul.tree > li.unit ul.page-modules li .unit-page-module-wrapper a {
-    color: #000
+    color: #000;
+    padding-left: 30px;
 }
 
+.course-structure-block ul.tree > li.unit ul.page-modules li .unit-page-module-wrapper a:hover {
+    text-decoration: none;
+}
 
 
 /* timeline*/
@@ -2038,11 +2310,11 @@ button[type="submit"].apply-button {
     content:'';
     background-image: url(img/bs-notseen.svg);
     background-size: auto;
-    height: 37px;
-    width: 37px;
+    height: 32px;
+    width: 32px;
     margin: 0px 0px 0px 0px;
     position: absolute;
-    left:-10px;
+    left:-35px;
     bottom: 10px;
 }
 
@@ -2420,16 +2692,23 @@ button[type="submit"].apply-button {
     left:-20px;
 }
 
-.course-side-menu .course-structure-block ul.tree > li.unit ul.page-modules li .unit-page-module-wrapper {
-    padding: 0px 20px 0px 50px;
-    background: none;
-    color: #000;
-}
 
 .course-side-menu .course-structure-block ul.tree > li.unit ul.page-modules li .unit-page-module-wrapper:hover {
     background: none;
 }
 
+.course-side-menu .course-structure-block ul.tree > li.unit ul.page-modules li .unit-page-module-wrapper {
+    border-bottom: none;
+}
+
+.course-side-menu .course-structure-block ul.tree > li.unit ul.page-modules li .unit-page-module-wrapper:hover {
+    border-bottom: none;
+}
+
+
+.course-side-menu .course-structure-block .unit-page-module-wrapper .module-title {
+    border-bottom: 2px solid rgba(0, 174, 237, 0);
+}
 .course-side-menu .course-structure-block .unit-page-module-wrapper:hover .module-title {
     border-bottom: 2px solid #00AEED;
 }
