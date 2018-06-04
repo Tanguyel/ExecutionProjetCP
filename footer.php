@@ -54,14 +54,14 @@ $site_url = get_option(siteurl);
     }
 ?>
 <script type="text/javascript">
-    <?php echo $GA_UA; ?>;
+    <?php echo $GA_UA; ?>
     (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
     (tarteaucitron.job = tarteaucitron.job || []).push('linkedin');
     (tarteaucitron.job = tarteaucitron.job || []).push('facebook');
     (tarteaucitron.job = tarteaucitron.job || []).push('facebookcomment');
     (tarteaucitron.job = tarteaucitron.job || []).push('twitter');
 </script>
-<?php echo $Insight; ?>;
+<?php echo $Insight; ?>
 
 </body>
 </html>
