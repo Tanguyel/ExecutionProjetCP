@@ -117,13 +117,14 @@ add_action( 'wp_enqueue_scripts', 'EP_scripts', 100 );
 
 add_shortcode( 'course_unit_archive_sidesubmenu', 'course_unit_archive_sidesubmenu');
 
+/*
 //empêcher l'éditeur wysiwyg d'ajouter des balises <p> et <br> :
 //sur les fichiers 'content'
 remove_filter( 'the_content', 'wpautop' );
 //sur les fichiers 'exerpt'
 remove_filter( 'the_excerpt', 'wpautop' );
 
-
+*/
 
 
 //enleve la colorisation des titres par CoursePress
@@ -435,22 +436,4 @@ class CoursePress_Widget_Help extends WP_Widget {
 }
 
 */
-
-
-add_filter('tiny_mce_before_init', 'xbs_allow_tinymce_tags_attr');
-function xbs_allow_tinymce_tags_attr( $init ) {
- 
-	// Autorise tous les tags et attributs
-	$ext = '*[*]';
- 
-	// Teste la présence de extended_valid_elements et ajoute $ext
-	if ( isset( $init['extended_valid_elements'] ) ) {
-		$init['extended_valid_elements'] .= ',' . $ext;
-	} else {
-		$init['extended_valid_elements'] = $ext;
-	}
- 
-	return $init;
-}
-
 
