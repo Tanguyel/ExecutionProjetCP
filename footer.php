@@ -48,9 +48,11 @@ $site_url = get_option(siteurl);
     tarteaucitron.user.analyticsMore = function () { /* add here your optionnal ga.push() */ };
     (tarteaucitron.job = tarteaucitron.job || []).push(\'analytics\');';
         $Insight = '<script type="text/javascript"> _linkedin_data_partner_id = "338324"; </script><script type="text/javascript"> (function(){var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})(); </script> <noscript> <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=338324&fmt=gif" /> </noscript>';
+        $hubspot_id = 'tarteaucitron.user.hubspotId = \'4491035\';';
     } else {
         $GA_UA = '';
         $Insight = '';
+        $hubspot_id = '';
     }
 ?>
 <script type="text/javascript">
@@ -60,6 +62,9 @@ $site_url = get_option(siteurl);
     (tarteaucitron.job = tarteaucitron.job || []).push('facebook');
     (tarteaucitron.job = tarteaucitron.job || []).push('facebookcomment');
     (tarteaucitron.job = tarteaucitron.job || []).push('twitter');
+    <?php echo $hubspot_id; ?>
+    (tarteaucitron.job = tarteaucitron.job || []).push('hubspot');
+    //(tarteaucitron.job = tarteaucitron.job || []).push('hubspotform');
 </script>
 <?php echo $Insight; ?>
 
