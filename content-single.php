@@ -7,7 +7,13 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title h1-underline-orange"><?php the_title(); ?></h1>
-
+	<?php
+	if ( has_post_thumbnail() ) {
+		echo '<div class="featured-image">';
+		the_post_thumbnail();
+		echo '</div>';
+	}
+	?>
 		<div class="entry-meta">
 			<span class="date-links">
                 <a href="<?php the_permalink(); ?>" rel="bookmark"><?php echo get_the_date(); ?></a>
@@ -31,16 +37,12 @@
             
 ?>
 		</div><!-- .entry-meta -->
+    <?php
+    ep_socialshare();
+    ?>
+        
 	</header><!-- .entry-header -->
-	<?php
 
-	if ( has_post_thumbnail() ) {
-		echo '<div class="featured-image">';
-		the_post_thumbnail();
-		echo '</div>';
-	}
-
-	?>
 	<div class="entry-content">
 		<?php
 		the_content();

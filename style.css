@@ -706,6 +706,13 @@ article.post .exemple .exemple-intro {
     padding-left: 0px;
 }
 
+.single-post #secondary.widget-area {
+    width: 260px;
+}
+
+a[rel="next"] {
+	float: right;
+}
 
 /****************************************
 
