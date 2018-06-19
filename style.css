@@ -1049,7 +1049,7 @@ section h1.right {
 .calltoaction-button.orange button,
 .calltoaction-button.orange input[type="submit"] {
     background-color: #F8931F;
-    color: #FFF;
+    color: #FFF !important;
     border-color: #F8931F;
 }
 
@@ -1067,7 +1067,7 @@ section h1.right {
 .calltoaction-button.cyan button,
 .calltoaction-button.cyan input[type="submit"] {
     background-color: #00AEED;
-    color: #FFF;
+    color: #FFF !important;
     border-color: #00AEED;
 }
 
@@ -1085,7 +1085,7 @@ section h1.right {
 .calltoaction-button.violet button,
 .calltoaction-button.violet input[type="submit"]:hover {
     background-color: #604A95;
-    color: #FFF;
+    color: #FFF !important;
     border-color: #604A95;
 }
 
