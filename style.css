@@ -613,6 +613,20 @@ article .entry-meta span a {
     margin-left: 5px;
 }
 
+/*******   Formulaire page d'acceuil   **********/
+
+
+#homecontact input[type="text"],
+#homecontact input[type="email"],
+#homecontact input[type="tel"],
+#homecontact textarea {
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    padding:10px;
+}
+
 
 /****************************************
 
