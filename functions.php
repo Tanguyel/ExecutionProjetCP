@@ -365,6 +365,17 @@ if ( ! function_exists( 'ep_socialshare' ) ) :
     }
 endif;
 
+
+if ( ! function_exists( 'ep_disable_cta' ) ) :
+    function ep_disable_cta($exclude) {
+        $exclude[] = 'page';
+        $exclude[] = 'course';
+        return $exclude;
+    }
+endif;
+
+add_filter( 'cta_excluded_post_types', 'ep_disable_cta');
+
 /*
 function register_cp_widget_help() {
 		register_widget( 'CoursePress_Widget_Help' );
