@@ -95,8 +95,19 @@ if ( ! function_exists( 'executionprojet_widgets_init' ) ) :
                 'description' => __( 'Side bar for the WooCommerce pages' ),
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget' => '</aside>',
-				'before_title' => '<h1 class="widget-title">',
-				'after_title' => '</h1>',
+				'before_title' => '<h2 class="widget-title">',
+				'after_title' => '</h2>',
+			)
+        );
+        register_sidebar(
+            array(
+				'name' => __( 'Landing Page Sidebar', 'cp' ),
+				'id' => 'landing-sidebar',
+                'description' => __( 'Side bar for the Landing Pages' ),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget' => '</aside>',
+				'before_title' => '<h2 class="widget-title">',
+				'after_title' => '</h2>',
 			)
         );
 	}
