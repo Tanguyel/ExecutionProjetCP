@@ -69,32 +69,36 @@
 
                 <nav id="site-navigation" class="main-navigation" role="navigation">
                     <?php
-                    $theme_location = 'primary';
-                    if ( ! has_nav_menu( $theme_location ) ) {
-                        $theme_locations = (array) get_nav_menu_locations();
-
-                        foreach ( $theme_locations as $key => $location ) {
-                            $theme_location = $key;
-                            break;
+                    if ( ! is_page_template( 'page-landing.php' )) {
+                        $theme_location = 'primary';
+                        if ( ! has_nav_menu( $theme_location ) ) {
+                            $theme_locations = (array) get_nav_menu_locations();
+                            foreach ( $theme_locations as $key => $location ) {
+                                $theme_location = $key;
+                                break;
+                            }
                         }
-                    }
-
-                    if ( has_nav_menu( 'primary' ) ) {
-                        wp_nav_menu(
-                            array(
-                                'theme_location' => 'primary',
-                                'menu_class' => 'mobile_menu',
-                                'menu_id' => 'mobile_menu',
-                                'walker' => new Walker_Nav_Menu_Dropdown(),
-                            )
-                        );
+                        if ( has_nav_menu( 'primary' ) ) {
+                            wp_nav_menu(
+                                array(
+                                    'theme_location' => 'primary',
+                                    'menu_class' => 'mobile_menu',
+                                    'menu_id' => 'mobile_menu',
+                                    'walker' => new Walker_Nav_Menu_Dropdown(),
+                                )
+                            );
+                        }
                     }
                     ?>
 
                     <a class="skip-link screen-reader-text" href="#content">
                         <?php _e( 'Skip to content', 'cp' ); ?>
                     </a>
-                    <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+                    <?php 
+                    if ( ! is_page_template( 'page-landing.php' )) {
+                        wp_nav_menu( array( 'theme_location' => 'primary' ) ); 
+                    }
+                    ?>
                 </nav><!-- #site-navigation -->
                 </div>
             </header><!-- #masthead -->
