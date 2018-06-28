@@ -447,4 +447,3 @@ class CoursePress_Widget_Help extends WP_Widget {
 }
 
 */
-
