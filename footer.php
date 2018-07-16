@@ -7,7 +7,7 @@
  * @package CoursePress
  */
 
-$site_url = get_option(siteurl);
+$site_url = get_option('siteurl');
 
 ?>
 
@@ -43,7 +43,7 @@ $site_url = get_option(siteurl);
 <?php wp_footer(); ?>
 
 <?php 
-    if ( $site_url == 'http://www.executionprojet.fr') {
+    if ( $site_url == 'https://www.executionprojet.fr' || $site_url == 'http://www.executionprojet.fr' ) {
         $GA_UA = 'tarteaucitron.user.analyticsUa = \'UA-97710296-1\';
     tarteaucitron.user.analyticsMore = function () { /* add here your optionnal ga.push() */ };
     (tarteaucitron.job = tarteaucitron.job || []).push(\'analytics\');';
