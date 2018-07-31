@@ -857,6 +857,7 @@ input[type="tel"]{
 
 #footercontact input[type="text"],
 #footercontact input[type="email"],
+#footercontact input[type="tel"],
 #footercontact textarea {
     width: 100%;
     border-radius: 3px;
