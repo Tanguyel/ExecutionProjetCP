@@ -387,6 +387,7 @@ endif;
 
 add_filter( 'cta_excluded_post_types', 'ep_disable_cta');
 
+
 /*
 function register_cp_widget_help() {
 		register_widget( 'CoursePress_Widget_Help' );

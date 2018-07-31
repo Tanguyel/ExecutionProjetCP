@@ -3,9 +3,9 @@
  * @package CoursePress
  */
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/Course">
 	<header class="entry-header">
-		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<h1 class="entry-title" itemprop="name"><?php the_title(); ?></h1>
 	</header><!-- .entry-header -->
 
 	<section id="course-summary">
@@ -22,10 +22,11 @@
 		<?php endif; ?>
 
 		<div class="entry-content-excerpt <?php echo ($course_media ? '' : 'entry-content-excerpt-right' ); ?>">
-			<div class="course-excerpt">
+			<div class="course-excerpt" itemprop="description">
                 <?php echo get_the_excerpt(); ?>
             </div>
-            <div class="course-box">
+            <div class="course-box" >
+
 				<?php
 				// Change to yes for 'Open-ended'.
                 $open_ended = cp_is_true( CoursePress_Data_Course::get_setting( get_the_ID(), 'course_open_ended', false ) );
@@ -37,14 +38,19 @@
                         echo do_shortcode( '[course_dates show_alt_display="yes"]' ) ;
                     }
                 }
-                    
+                
 				// Change to yes for 'Open-ended'.
                 if (!(cp_is_true( CoursePress_Data_Course::get_setting( get_the_ID(), 'enrollment_open_ended', false )))): 
                     echo do_shortcode( '[course_enrollment_dates show_alt_display="no"]' );
                 endif;
 				//echo do_shortcode( '[course_language]' );
 				echo do_shortcode( '[course_cost]' );
+                /*<meta property="courseMode" content="MOOC" />
+                <meta property="courseMode" content="online" />
+                <meta property="courseMode" content="blended" />
+                <meta property="startDate" content="<?php echo $start_date ?>" />*/
 				?>
+                
 			</div><!--course-box-->
 			<div class="quick-course-info">
 				<?php echo do_shortcode( '[course_join_button]' ); ?>
@@ -135,9 +141,17 @@ endif;
 
     
         <div class="course_prerequisites right-content">
-            <div class="calltoaction-button orange full"><a href="#footercontact" ><i class="fa fa-refresh"></i>Etre recontacté</a></div>
-            <div class="calltoaction-button orange full"><a href="tel:+33644663500" ><i class="fa fa-mobile-phone fa-lg"></i>06 44 66 35 00</a></div>
-            
+            <div itemprop="provider" itemscope itemtype="http://schema.org/Organization">
+                <meta itemprop="name" content="ExecutionProjet.fr">
+                <meta itemprop="logo" content="http://www.executionprojet.fr/wp-content/uploads/2018/06/Gravatar-ExecutionProjet.png">
+                <div class="calltoaction-button orange full"><a href="#footercontact" ><i class="fa fa-refresh"></i>Etre recontacté</a></div>
+                <div class="calltoaction-button orange full" itemprop="contactPoint" itemscope itemtype="http://schema.org/ContactPoint">
+                    <a href="tel:+33644663500" ><i class="fa fa-mobile-phone fa-lg"></i>06 44 66 35 00</a>
+                    <meta itemprop="telephone" content="+33644663500">
+                    <meta itemprop="contactType" content="customer support">
+                    <meta itemprop="availableLanguage" content="French">
+                </div>
+            </div>
             <h1 class="h1-underline-violet"><?php _e( 'Public', 'cp' ); ?></h1>
             <?php echo do_shortcode( '[course_public course_id="' . get_the_ID() . '" label=""]' ); ?>
             <h1 class="h1-underline-violet"><?php _e( 'Prerequisites', 'cp' ); ?></h1>
