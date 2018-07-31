@@ -6,6 +6,13 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/Course">
 	<header class="entry-header">
 		<h1 class="entry-title" itemprop="name"><?php the_title(); ?></h1>
+        <?php
+            if ( function_exists('ep_breadcrumb') ) {
+                echo '<div class="breadcrumb">';
+                ep_breadcrumb();
+                echo '</div>';
+            }
+?>
 	</header><!-- .entry-header -->
 
 	<section id="course-summary">

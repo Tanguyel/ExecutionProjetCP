@@ -388,6 +388,99 @@ endif;
 add_filter( 'cta_excluded_post_types', 'ep_disable_cta');
 
 
+/*-----------------------------------------------------------------------------------*/
+/*  Breadcrumbs with Google Frienldy Rich Snippet Tools
+/*-----------------------------------------------------------------------------------*/
+if (!function_exists('ep_breadcrumb')) {
+    function ep_breadcrumb() {
+
+        $showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
+        $delimiter = '<span class="delimiter">&raquo;</span>'; // delimiter between crumbs
+        $home = sprintf( __( "Acceuil","ep_cp")); // text for the 'Home' link
+        $before = '<span class="current">'; // tag before the current crumb
+        $after = '</span>'; // tag after the current crumb
+        $position = 1;
+
+        global $post;
+        
+        ?>
+        <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" href="' <?php echo home_url(); ?>">
+                    <span itemprop="name"><?php echo $home; ?></span>
+                    <meta itemprop="position" content="<?php echo $position; ?>" />
+                </a>
+            </li>
+        <?php
+        $position = $position + 1; 
+        
+        if (is_category() || is_single()) {
+            $categories = get_the_category();
+            $output = '';
+            
+            if (get_post_type() == 'course') {
+                echo $delimiter; 
+                $course_home = CoursePress_Core::get_slug( 'course', true );
+                ?>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a href="<?php echo $course_home; ?>" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                    <span itemprop="name">Formation </span>
+                </a>
+                <meta itemprop="position" content="<?php echo $position; ?>" />
+            </li> 
+                <?php
+                $position = $position + 1; 
+            }
+            if (get_post_type() == 'post') {
+                echo $delimiter; 
+                ?>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a href="" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                    <span itemprop="name">Articles</span>
+                </a>
+                <meta itemprop="position" content="<?php echo $position; ?>" />
+            </li> 
+                <?php
+                $position = $position + 1; 
+            }
+            
+            if($categories){
+                if (get_post_type() != 'course') { 
+                    echo $delimiter; 
+                    ?>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a href="<?php echo get_category_link( $categories[0]->term_id ); ?>" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                    <span itemprop="name"><?php echo $categories[0]->cat_name; ?></span>
+                </a>
+                <meta itemprop="position" content="<?php echo $position; ?>" />
+            </li>';
+                    <?php
+                    $position = $position + 1; 
+                }
+            }
+            if (is_single()) {
+                echo $delimiter; 
+                    ?>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <span itemprop="name"><?php echo the_title(); ?></span>
+                <meta itemprop="position" content="<?php echo $position; ?>" />
+            </li>
+                    <?php
+            } elseif (is_page()) {
+                echo $delimiter; 
+                    ?>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <span itemprop="name"><?php echo the_title(); ?></span>
+                <meta itemprop="position" content="<?php echo $position; ?>" />
+            </li>
+                    <?php
+            }
+        }
+        echo '</ul>';
+    }
+}
+
+
 /*
 function register_cp_widget_help() {
 		register_widget( 'CoursePress_Widget_Help' );

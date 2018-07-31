@@ -627,6 +627,32 @@ article .entry-meta span a {
     padding:10px;
 }
 
+/****************************************
+
+        Breadcrumb
+
+*****************************************/
+
+.breadcrumb { 
+	position: relative; 
+	display: block !important; 
+	font-size: 12px;
+	margin-bottom: 10px;
+	}
+.breadcrumb ul {
+	padding: 0;
+    margin: 0;
+    list-style:none;
+	display: block;
+}
+.breadcrumb li {
+	display: inline;
+	margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+
 
 /****************************************
 
