@@ -26,10 +26,11 @@ $site_url = get_option('siteurl');
 ?>
 </nav><!-- #site-navigation --> 
 
-    <div class="ep-footer ep-credit">
+    <div class="ep-footer ep-credit" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
         Copyright © 
         <span class="ep-footer-year">2017</span> 
-        <span class="ep-footer-site-title"> ELM SAS</span>
+        <span class="ep-footer-site-title" itemprop="name"> ELM SAS</span>
+        <meta itemprop="logo" content="">
     </div>
     <div class="ep-footer">
         <span class="tarteaucitronOpenPanel">Gestion des cookies</span>
