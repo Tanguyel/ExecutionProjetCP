@@ -8,6 +8,15 @@
  *
  * @package CoursePress
  */
+        
+if (function_exists('camera_main_ss_add')) {
+    camera_register_scripts;
+    wp_enqueue_style('camera-css-front', $pix_plugindir.'css/camera_front.css', false, '1.0', 'all');
+    wp_enqueue_style('camera-css-colorbox', $pix_plugindir.'css/colorBox'.camera_get_option('camera_colorbox_skin').'/colorbox.css', false, '1.0', 'all');
+    $shortcode_found=true;
+    camera_enqueue_head;
+}
+
 
 get_header();
 
@@ -16,8 +25,17 @@ get_header();
 	<main id="main" class="site-main-nospace" role="main">
 
         <!-- Hero Section -->
-        
-        <section data-id="wewycxg" class="top-section section-hero hero-display ">
+        <?php 
+
+        if (function_exists('camera_main_ss_add')) {
+        ?>
+        <section data-id="wewycxg" class="section-hero hero-display "> 
+            <?php echo do_shortcode('[camera slideshow="my-first-slideshow"]'); ?>
+        </section> 
+        <?php    
+        } else {
+            ?>
+            <section data-id="wewycxg" class="top-section section-hero hero-display ">
             <div class="section-overlay hero-section-overlay"></div>
             <div data-id="wlzbsxu" class="section-title hero-section-title" data-element_type="heading.default">
                 <h1 class="hero-title">Développez vos connaissances en management de projet grâce à nos formations gratuites
@@ -25,7 +43,7 @@ get_header();
             </div>
             <div data-id="uslpujc" class="section-button hero-section-button" data-element_type="button.default">
                 <div class="calltoaction-buton cyan">
-                    <a href="http://www.executionprojet.fr/formation-general-projet/" class="">
+                    <a href="https://www.executionprojet.fr/formation-general-projet/" class="">
                         <span class="align-icon-right button-icon">
                             <i class="fa fa-arrow-right"></i>
                         </span>
@@ -33,8 +51,12 @@ get_header();
                     </a>
                 </div>
             </div>
+
         </section>
+        <?php
+        }
         
+            ?>        
         <section class="main-section">
             <div class="blog-post-display main-content">
             <?php
