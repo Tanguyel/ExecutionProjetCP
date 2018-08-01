@@ -481,6 +481,10 @@ if (!function_exists('ep_breadcrumb')) {
 }
 
 
+if (function_exists(‘camera_main_ss_add’)) {
+add_action(‘admin_init’,’camera_main_ss_add’);
+}
+
 /*
 function register_cp_widget_help() {
 		register_widget( 'CoursePress_Widget_Help' );
