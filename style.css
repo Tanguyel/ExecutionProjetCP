@@ -321,6 +321,19 @@ body {
     display:none;
 }
 
+.section-hero .camera_wrap .camera_pag {
+    position: relative;
+    bottom: 60px;
+}
+
+.section-hero .camera_wrap .camera_pag .camera_pag_ul {
+    text-align: center;
+}
+
+.section-hero .camera_wrap .camera_pag .camera_pag_ul li {
+    opacity: .7;
+}
+
 .home-page .section-entreprise .section-title {
     padding: 40px 30% 20px 40px;
     text-align: center;
