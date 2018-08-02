@@ -480,10 +480,12 @@ if (!function_exists('ep_breadcrumb')) {
     }
 }
 
-
-if (function_exists(‘camera_main_ss_add’)) {
-add_action(‘admin_init’,’camera_main_ss_add’);
+// Ajout de la boite meta de camera slideshow
+/*
+if (function_exists('camera_main_ss_add')) {
+add_action('admin_init','camera_main_ss_add');
 }
+*/
 
 /*
 function register_cp_widget_help() {
