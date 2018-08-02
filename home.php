@@ -28,7 +28,7 @@ get_header();
     if (function_exists('camera_main_ss_add')) {
     ?>
         <section class="top-section section-hero hero-display dynamic"> 
-            <?php echo do_shortcode('[camera slideshow="my-first-slideshow"]'); 
+            <?php echo do_shortcode('[camera slideshow="homeheroslideshow"]'); 
         /* Pour reference
 <div class="hero-display-warper">
     <div class="section-overlay hero-section-overlay"></div>
