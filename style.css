@@ -251,7 +251,7 @@ body {
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
 }
 
-.home-page .top-section {
+.home-page .top-section-background {
     background-image: url("http://www.executionprojet.fr/wp-content/uploads/2017/09/Bureauvitré.jpg");
     padding: 170px 0px 180px 0px;
 }
@@ -281,6 +281,10 @@ body {
     position: absolute;
 }
 
+.home-page .section-hero .hero-display-warper {
+    padding: 170px 0px 180px 0px;
+}
+
 .home-page .section-hero .section-overlay {
     background-color: #63d3bb;
     opacity: 0.65;
@@ -295,7 +299,7 @@ body {
     border:0px none;
 }
 
-.home-page .top-section .hero-section-title {
+.home-page .section-hero .hero-section-title {
     padding: 50px;
     max-width:960px;
     margin-left: auto;
@@ -304,12 +308,17 @@ body {
     position: relative;
 }
 
-.home-page .top-section .hero-section-title h1 {
+.home-page .section-hero .hero-section-title h1 {
     color: #ffffff;
     font-size: 40px;
     font-family: "Raleway", Sans-serif;
     line-height: 1.em;
     text-decoration: none;
+}
+
+/*.section-hero .camera_fakehover .camera_target_content,*/
+.section-hero .camera_fakehover .camera_overlayer {
+    display:none;
 }
 
 .home-page .section-entreprise .section-title {
