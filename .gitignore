@@ -6,3 +6,8 @@
 
 #Ignorer le dossier font-assomme
 font-awesome/*
+._functions.php
+
+._home.php
+
+._style.css
