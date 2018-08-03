@@ -53,6 +53,19 @@ Tags: course, courses, learning, teaching, training, e-learning, e-commerce
     color: #00AEED;
 }
 
+.main-navigation ul ul {
+    top: 10px;
+}
+
+.main-navigation ul ul a {
+    background-color: #604A95;
+    border-color: #4F3D7A;
+}
+
+.main-navigation ul ul a:hover {
+    background-color: #604A95;
+}
+
 svg.eplogo-back {
 	overflow: visible; 
 	width: 500px;
