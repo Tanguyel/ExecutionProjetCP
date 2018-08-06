@@ -433,9 +433,11 @@ if (!function_exists('ep_breadcrumb')) {
             }
             if (get_post_type() == 'post') {
                 echo $delimiter; 
+                //$blog_home = CoursePress_Core::get_slug( 'post', true );
+                $blog_home = get_post_type_archive_link( 'post' );
                 ?>
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a href="" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                <a href="<?php echo $blog_home; ?>" itemscope itemtype="http://schema.org/Thing" itemprop="item">
                     <span itemprop="name">Articles</span>
                 </a>
                 <meta itemprop="position" content="<?php echo $position; ?>" />
@@ -453,7 +455,7 @@ if (!function_exists('ep_breadcrumb')) {
                     <span itemprop="name"><?php echo $categories[0]->cat_name; ?></span>
                 </a>
                 <meta itemprop="position" content="<?php echo $position; ?>" />
-            </li>';
+            </li>
                     <?php
                     $position = $position + 1; 
                 }
