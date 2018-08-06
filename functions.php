@@ -482,6 +482,26 @@ if (!function_exists('ep_breadcrumb')) {
     }
 }
 
+
+//Utilisation du modele de presentation des cours du theme plutot que celui hardcoded du plugin
+
+add_filter( 'coursepress_template_course_list_box', 'ep_use_content_course',10,4);
+
+function ep_use_content_course( $template, $course_id, $a ) {
+    $course_query = new WP_Query(array( 
+                                    'p' => $course_id,
+                                    'post_type' => 'course'
+                                ) );
+    
+    while($course_query->have_posts()) {
+        $course_query->the_post(); 
+        
+        get_template_part( 'content-course' );
+        
+        wp_reset_postdata();
+    }
+}
+
 // Ajout de la boite meta de camera slideshow
 /*
 if (function_exists('camera_main_ss_add')) {
