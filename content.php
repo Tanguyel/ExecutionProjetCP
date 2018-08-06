@@ -5,23 +5,24 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>itemscope itemtype="http://schema.org/Article">
 	<header class="entry-header">
-		<h1 class="entry-title h1-underline-orange">
-			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+		<h1 class="entry-title h1-underline-orange" itemprop="headline">
+			<a href="<?php the_permalink(); ?>" rel="bookmark" itemprop="url"><?php the_title(); ?></a>
+            <meta itemprop="mainEntityOfPage" content="<?php the_permalink(); ?>">
 		</h1>
 	</header><!-- .entry-header -->
 
     <?php
     echo '<div class="featured-image">';
     if ( has_post_thumbnail() ) {
-        the_post_thumbnail('home-thumbnail');
+        the_post_thumbnail('home-thumbnail', array( 'itemprop' => 'image' ) );
     }
     echo '</div>';
     ?>
     
 	<?php //if ( is_search() ) : // Only display Excerpts for Search ?>
-		<div class="entry-summary">
+		<div class="entry-summary" itemprop="description">
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 	<?php /* else : ?>
@@ -41,7 +42,7 @@
 			// translators: Used between list items, there is a space after the comma.
 			 
             ?>
-            <span class="date-links">
+            <span class="date-links" itemprop="datePublished" content="<?php echo get_the_date('Y-m-d'); ?>">
 				<a href="<?php the_permalink(); ?>" rel="bookmark"><?php echo get_the_date(); ?></a>
             </span>
 			<?php
@@ -57,7 +58,7 @@
 			endif; // End if categories
         */
 			// translators: Used between list items, there is a space after the comma.
-			$tags_list = get_the_tag_list( '<span class="tag-link">','</span><span class="tag-link">','</span>' );
+			$tags_list = get_the_tag_list( '<span class="tag-link" itemprop="keywords">','</span><span class="tag-link" itemprop="keywords">','</span>' );
 			if ( $tags_list ) :
                 echo $tags_list;
 			/*	?>
@@ -89,4 +90,13 @@
 		?>
         
 	</footer><!-- .entry-meta -->
+    <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="Tanguy El Mouahidine">
+        <meta itemprop="jobTitle" content="Consultant et Formateur en management de projet">
+    </span>
+    <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="ExecutionProjet.fr">
+        <meta itemprop="logo" content="http://www.executionprojet.fr/wp-content/uploads/2018/06/Gravatar-ExecutionProjet.png">
+    </span>
+    <meta itemprop="dateModified" content="<?php the_modified_date('Y-m-d'); ?>">
 </article><!-- #post-## -->
