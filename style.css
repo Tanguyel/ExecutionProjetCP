@@ -1877,6 +1877,11 @@ Complement pour les cartes archives des cours.
     -webkit-box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
     box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
     text-decoration: none;
+    color:#000;
+}
+
+.course-card a:visited {
+    color:#000;
 }
 
 .course-card .course-thumbnail img {
@@ -1892,15 +1897,19 @@ Complement pour les cartes archives des cours.
     top: -30px;*/
     padding: 5px 15px 0px 15px;
 }
+
+.course-card p {
+    margin: 0px; 
+}
 /*
 .course-card .entry-meta span {
     background: rgba(255, 255, 255, 0.6);    
 }
-
-
+*/
 .course-card h2 {
-    
-}*/
+    font-size: 24px;
+    text-align: center;
+}
 
 /****************************************
 
