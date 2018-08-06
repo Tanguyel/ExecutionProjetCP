@@ -9,7 +9,12 @@
 		<h1 class="entry-title h1-underline-orange" itemprop="headline"><?php the_title(); ?></h1>
         <meta itemprop="url" content="<?php the_permalink(); ?>">
         <meta itemprop="mainEntityOfPage" content="<?php the_permalink(); ?>">
-	<?php
+<?php
+    if ( function_exists('ep_breadcrumb') ) {
+        echo '<div class="breadcrumb">';
+        ep_breadcrumb();
+        echo '</div>';
+    }
 	if ( has_post_thumbnail() ) {
 		echo '<div class="featured-image">';
 		the_post_thumbnail('post-thumbnail', array( 'itemprop' => 'image' ) );
