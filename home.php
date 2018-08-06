@@ -79,12 +79,23 @@ get_header();
         <section class="main-section">
             <div class="blog-post-display main-content">
             <?php
+            
+            
             if ( have_posts() ) :
 
+            $listData["@context"] = "http://schema.org/";
+            $listData["@type"] = "ItemList";
+            $position = 1;
+                
+            
                 /* Start the Loop */
                 while ( have_posts() ) :
                     the_post();
-
+                    $listData["itemListElement"][$position-1]["@type"] = "ListItem";
+                    $listData["itemListElement"][$position-1]["position"] = $position;
+                    $listData["itemListElement"][$position-1]["url"] = get_the_permalink();
+                    $position = $position + 1; 
+                
                     /* Include the Post-Format-specific template for the content.
                      * If you want to override this in a child theme, then include a file
                      * called content-___.php ( where ___ is the Post Format name ) and that will be used instead.
@@ -147,6 +158,9 @@ get_header();
         
 	</main><!-- #main -->
 </div><!-- #primary -->
+<script type="application/ld+json">
+    <?php echo json_encode($listData); ?>
+</script>
 <?php
 
 get_footer();
