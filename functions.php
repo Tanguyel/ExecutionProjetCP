@@ -406,7 +406,7 @@ if (!function_exists('ep_breadcrumb')) {
         ?>
         <ul itemscope itemtype="http://schema.org/BreadcrumbList">
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a itemprop="item" href="' <?php echo home_url(); ?>">
+                <a itemprop="item" href="<?php echo home_url(); ?>">
                     <span itemprop="name"><?php echo $home; ?></span>
                     <meta itemprop="position" content="<?php echo $position; ?>" />
                 </a>
@@ -437,7 +437,7 @@ if (!function_exists('ep_breadcrumb')) {
                 $blog_home = get_post_type_archive_link( 'post' );
                 ?>
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a href="<?php echo $blog_home; ?>" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                <a href="<?php echo $blog_home . '/articles'; ?>" itemscope itemtype="http://schema.org/Thing" itemprop="item">
                     <span itemprop="name">Articles</span>
                 </a>
                 <meta itemprop="position" content="<?php echo $position; ?>" />
