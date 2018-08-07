@@ -70,6 +70,7 @@ get_header();
                 }
                 ?>  
                 </nav>
+                
             <?php    
             $my_query = new WP_Query('post_type=post');
             if($my_query->have_posts()) {
