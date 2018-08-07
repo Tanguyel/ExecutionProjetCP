@@ -453,11 +453,14 @@ body {
 }
 
 .home-page article .entry-header,
-.home-page article .entry-meta {
+.home-page article .entry-meta,
+.archive-article .entry-header, 
+.archive-article .entry-meta{
     text-align:left;
 }
 
-.home-page article .entry-header a {
+.home-page article .entry-header a,
+.archive-article article .entry-header a{
     color : #000;
     text-decoration: none;
     font-family: 'raleway', inherit;
@@ -467,18 +470,25 @@ body {
 .home-page article .entry-header h1,
 .home-page article .featured-image,
 .home-page article .entry-content, 
-.home-page article .entry-summary {
+.home-page article .entry-summary,
+.archive-article article .entry-header h1,
+.archive-article article .featured-image,
+.archive-article article .entry-content, 
+.archive-article article .entry-summary {
     display: inline-block;
     vertical-align: top;
 }
 
-.home-page article .featured-image {
+.home-page article .featured-image,
+.archive-article article .featured-image{
     width: 30%;
     min-width: 150px;
 }
 
 .home-page article .entry-content,
-.home-page article .entry-summary {
+.home-page article .entry-summary,
+.archive-article article .entry-content,
+.archive-article article .entry-summary {
     width: 65%;
     min-width: 250px;
     margin: 0px;
@@ -488,12 +498,15 @@ body {
 }
 
 .home-page article .entry-content a,
-.home-page article .entry-summary a {
+.home-page article .entry-summary a,
+.archive-article article .entry-content a,
+.archive-article article .entry-summary a {
     color: black;
     font-style: italic;
 }
 
-.home-page article .entry-meta {
+.home-page article .entry-meta,
+.archive-article article .entry-meta{
     height: auto;
     padding:5px 15px 20px 15px;
 }
@@ -598,7 +611,10 @@ article .entry-meta span a {
     
     .home-page article .featured-image,
     .home-page article .entry-content,
-    .home-page article .entry-summary {
+    .home-page article .entry-summary,
+    .archive-article article .featured-image,
+    .archive-article article .entry-content,
+    .archive-article article .entry-summary{
         width: 98%;
     }
     
@@ -687,6 +703,37 @@ article .entry-meta span a {
     margin-left: 10px;
 }
 
+
+
+/****************************************
+
+        Bare de navigation categories
+
+*****************************************/
+
+.category-navigation {
+    text-align: center;
+    overflow:initial !important;
+}
+
+.category-navigation a,
+.category-navigation a:hover,
+.category-navigation a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+.category-navigation .tag-link {
+    padding: 2px 10px;
+    margin: 0px 3px;
+    border-bottom: solid 2px #604A95;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    font-size: 1.1em;
+}
+
+.category-navigation .tag-link:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+}
 
 
 
