@@ -423,7 +423,7 @@ if (!function_exists('ep_breadcrumb')) {
                 $course_home = CoursePress_Core::get_slug( 'course', true );
                 ?>
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a href="<?php echo $course_home; ?>" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                <a href="<?php echo $course_home; ?>" itemprop="item" itemscope itemtype="http://schema.org/Thing">
                     <span itemprop="name">Formation </span>
                 </a>
                 <meta itemprop="position" content="<?php echo $position; ?>" />
@@ -437,8 +437,9 @@ if (!function_exists('ep_breadcrumb')) {
                 $blog_home = get_post_type_archive_link( 'post' );
                 ?>
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a href="<?php echo $blog_home . '/articles'; ?>" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                <a href="<?php echo $blog_home . '/articles'; ?>" itemprop="item" itemscope itemtype="http://schema.org/Thing">
                     <span itemprop="name">Articles</span>
+                    <meta itemprop="url" content="<?php echo $blog_home . '/articles'; ?>">
                 </a>
                 <meta itemprop="position" content="<?php echo $position; ?>" />
             </li> 
@@ -451,8 +452,9 @@ if (!function_exists('ep_breadcrumb')) {
                     echo $delimiter; 
                     ?>
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                <a href="<?php echo get_category_link( $categories[0]->term_id ); ?>" itemscope itemtype="http://schema.org/Thing" itemprop="item">
+                <a href="<?php echo get_category_link( $categories[0]->term_id ); ?>" itemprop="item" itemscope itemtype="http://schema.org/Thing">
                     <span itemprop="name"><?php echo $categories[0]->cat_name; ?></span>
+                    <meta itemprop="url" content="<?php echo get_category_link( $categories[0]->term_id ); ?>">
                 </a>
                 <meta itemprop="position" content="<?php echo $position; ?>" />
             </li>
