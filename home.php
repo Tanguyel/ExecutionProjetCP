@@ -86,10 +86,10 @@ get_header();
             $listData["@context"] = "http://schema.org/";
             $listData["@type"] = "ItemList";
             $position = 1;
-                
+            
             
                 /* Start the Loop */
-                while ( have_posts() ) :
+                while ( have_posts() && $position <= 4 ) :
                     the_post();
                     $listData["itemListElement"][$position-1]["@type"] = "ListItem";
                     $listData["itemListElement"][$position-1]["position"] = $position;
@@ -112,8 +112,8 @@ get_header();
 
             endif;
             ?>
-              <div data-id="z00tisy" class="more calltoaction-buton cyan" data-element_type="button.default">
-                    <a href="#" class="">Voir tous les articles</a>
+              <div class="more calltoaction-buton cyan" data-element_type="button.default">
+                    <a href="<?php echo home_url("/articles"); ?>" class="">Voir tous les articles</a>
                 </div>
             </div>
             
@@ -125,19 +125,19 @@ get_header();
         
         <!-- Section Entreprise -->
         
-        <section data-id="ahrcvvn" class="bottom-section section-entreprise" data-element_type="section" >
+        <section class="bottom-section section-entreprise" >
             <div class="section-overlay entreprise-section-overlay"></div>
-            <div data-id="lyqlamf" class="section-title entreprise-section-title" data-element_type="column">
+            <div class="section-title entreprise-section-title" >
                 <h1 class="elementor-heading-title elementor-size-default">Vous êtes une entreprise ? </h1>
             </div>
             <div class="section-text entreprise-section-text">
-				<ul data-id="usiwxsh" class="">
+				<ul class="">
 					<li class="">Formation à distance et presentiel&nbsp;</li>
                     <li class="" >Développement de formations internes</li>
                     <li class="" >Conseil</li>
 				</ul>
             </div>
-            <div data-id="ueqdiw6" class="section-button entreprise-section-button" data-element_type="button.default">
+            <div class="section-button entreprise-section-button">
                 <div class="calltoaction-buton orange">
                     <a href="http://www.executionprojet.fr/entreprise/" class="">
                         <span class="align-icon-right button-icon">
