@@ -23,20 +23,25 @@ get_header();
 ?>
 
 <div id="primary" class="content-area content-side-area coursepress-single-unit">
+    <h2 class="course-name">
+        <?php
+        echo do_shortcode( '[course_title course_id="' . $course_id . '" title_tag="span" ]' );
+        ?>
+    </h2>
 	<?php get_sidebar( 'course-menu' ); ?>
-    <main id="main" class="site-main" role="main">
+    <main id="main" class="site-main course-display" role="main">
         <?php while ( have_posts() ) : the_post(); ?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
                     <h1 class="main-course-title h1-underline-cyan">
                         <?php
                         echo do_shortcode( '[course_title course_id="' . get_the_ID() . '" title_tag="span" class="unit-title"]' );
-                        ?>
+                        /*?>
                         <span class="course-title"> - </span>
                         <?php
                         echo do_shortcode( '[course_title course_id="' . $course_id . '" title_tag="span" ]' );
                         ?>
-                        <?php
+                        <?php*/
                         $is_focus = CoursePress_Data_Course::get_setting( $course_id, 'course_view', 'normal' );
                         ?>
                     </h1>

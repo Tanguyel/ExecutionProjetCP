@@ -2232,8 +2232,24 @@ button[type="submit"].apply-button {
     }
 }
 
+/***************************************************
 
+            Apparence du cours
 
+****************************************************/
+
+main.course-display{
+    padding-top: 0px;
+}
+
+h2.course-name {
+    padding-left: 30px;
+    padding-top: 10px;
+
+}
+h2.course-name .course-title {
+    font-size: 24px;
+}
 
 /***************************************************
 
@@ -2712,7 +2728,7 @@ button[type="submit"].apply-button {
 }
 
 .course-side-menu .submenu-main-container {
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .course-side-menu .submenu-main-container,
