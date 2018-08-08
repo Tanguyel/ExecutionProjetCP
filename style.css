@@ -1369,33 +1369,37 @@ li .fa{
 /************ form MailChimp *********/
 
 #mc_embed_signup {
-    background:#fff; 
+    background:#f9f9f9; 
     clear:left;
     max-width: 700px;
     margin: auto;
+    font: 14px "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 
 
 #mc_embed_signup input[type=text], 
 #mc_embed_signup input[type=email] {
-     border: 2px solid #00AEED;
-     background-color: #00AEED;
-     color: #FFF;
-     border-radius: 4px;
+     border: 1px solid #ccc;
+     background-color: #fff;
+     color: #666;
+     border-radius: 3px;
 }
 
 #mc_embed_signup input[type=text]:focus, 
 #mc_embed_signup input[type=email]:focus {
-    border: 2px solid #00AEED; 
-    background-color: #FFFFFF;
-    color: #00AEED;
+    border-color: #ccc; 
 }
-
+/*
 #mc_embed_signup input[type=text]:hover, 
 #mc_embed_signup input[type=email]:hover {
     border: 2px solid #00AEED; 
     background-color: rgba(0, 174, 237, 0.5);
     color: #FFF;
+}
+*/
+
+#mc_embed_signup div.mce_inline_error {
+    background: #f9f9f9 !important;
 }
 
 #mc_embed_signup input[type=submit] {
