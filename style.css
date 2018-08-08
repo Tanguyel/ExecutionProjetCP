@@ -849,6 +849,29 @@ Modification de l'apparence des commentaires generaux
 
 *****************************************/
 
+#comments .comment-form-comment {
+    margin-bottom: 15px;
+}
+
+#comments .comment-form-author,
+#comments .comment-form-email, 
+#comments .comment-form-url, 
+#comments .gdpr-terms-container {
+    margin-bottom: 15px;
+}
+
+#comments .comment-form-author label,
+#comments .comment-form-email label, 
+#comments .comment-form-url label {
+    width: 200px;
+    display: inline-block;
+}
+
+#comments .form-submit input {
+    width: 100%;
+    background-color: #00AEED;
+}
+
 #comments .comments-title,
 #comments .comment-respond h3 {
     border-bottom: 2px solid #00AEED;
