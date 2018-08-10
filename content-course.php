@@ -6,7 +6,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('course-card'); ?> itemscope itemtype="http://schema.org/Course">
     <a href="<?php the_permalink(); ?>" >
         <?php
-        $course_media = do_shortcode( '[course_media wrapper="figure" list_page="yes" width="300" height=""]' );
+        $course_media = do_shortcode( '[course_media wrapper="figure" list_page="yes" width="" height=""]' );
 
         if ( $course_media ) {
             $extended_class = '';

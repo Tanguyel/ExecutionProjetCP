@@ -1931,7 +1931,7 @@ Complement pour les cartes archives des cours.
 *****************************************/
 
 .course-card {
-    width: 33.333%;
+    width: 33%;
     display: inline-block;
     vertical-align: top;
     box-sizing: border-box;

@@ -424,7 +424,7 @@ if (!function_exists('ep_breadcrumb')) {
                 ?>
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                 <a href="<?php echo $course_home; ?>" itemprop="item" itemscope itemtype="http://schema.org/Thing">
-                    <span itemprop="name">Formation </span>
+                    <span itemprop="name">Formation</span>
                 </a>
                 <meta itemprop="position" content="<?php echo $position; ?>" />
             </li> 
