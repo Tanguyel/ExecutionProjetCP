@@ -3393,6 +3393,147 @@ select.units_dropdown {
     display:none;
 }
 
+/************************  Page Unit  *******************/
+
+.instructors-content, 
+.instructors-content a {
+    color:#000;
+    display:none;
+}
+
+
+/**** UNIT *****/
+
+.units-archive-list li {
+    background: none;
+}
+
+.units-archive-list li a {
+    color: black;
+}
+
+.units-archive-list li a.unit-archive-single-title {
+    font-family: 'raleway', 'source sans pro', sans-serif;
+    background: none;
+    border-bottom: 2px solid #F8931F;
+    border-radius: none;
+}
+
+.units-archive-list li a.unit-archive-single-title:hover {
+    color:#00AEED;
+}
+
+/**** Section *****/
+
+.unit-archive-single ul.unit-archive-module-wrapper {
+    padding-left: 60px;
+}
+
+.units-archive-list .unit-archive-single .section-title {
+    color: #000;
+    font-weight: 300;
+    line-height: 35px;
+    font-family: 'raleway', 'source sans pro', sans-serif;
+    font-size: 20px; 
+    border-bottom: 2px solid #00AEED;
+    padding-left: 10px;
+    width: 80%
+}
+
+.units-archive-list .unit-archive-single .section-title:hover {
+    color: #604A95;
+}
+
+
+/**** Modules ****/
+
+
+.unit-archive-single ul.module-list {
+    padding-left: 50px;
+}
+
+.units-archive-list .unit-archive-single ul.module-list li {
+    min-height: initial;
+    
+}
+
+.units-archive-list .module-list li {
+    font-size:21px;
+    margin-bottom: 0px;
+}
+
+.units-archive-list .module-list li a {
+    font-size:18px;
+}
+
+.units-archive-list .module-list li .module-title {
+    padding-left: 0px;
+}
+
+.units-archive-list li .module-title:before {
+    content: ' ';
+    font-family: Dashicons;
+    float: left;
+    display: block;
+    width: 30px;
+    text-align: center;
+}
+
+.units-archive-list .text .module-title:before {
+    content: "\f491"
+}
+
+.units-archive-list .video .module-title:before, 
+.units-archive-list .audio .module-title:after {
+    content: "\f236"
+}
+
+.units-archive-list [class *="input-"] .module-title:before {
+    content: "\f203"
+}
+
+.units-archive-list .download .module-title:before {
+    content: "\f316"
+}
+
+.units-archive-list .image .module-title:before {
+    content: "\f128"
+}
+
+.units-archive-list .zipped .module-title:before {
+    content: "\f501"
+}
+
+.units-archive-list .discussion .module-title:before {
+    content: "\f473"
+}
+
+/* timeline*/
+
+.units-archive-list .module-list > li:before {
+    content:'';
+    background-image: url(img/bs-notseen.svg);
+    background-size: auto;
+    height: 37px;
+    width: 37px;
+    margin: 0px 0px 0px 0px;
+    position: absolute;
+    left:-35px;
+    bottom: 10px;
+}
+
+.units-archive-list .module-list > li.module-completed:before {
+    background-image: url(img/bs-seen.svg);
+}
+
+.units-archive-list .module-list > li:first-child:before {
+    background-image: url(img/bs-Fnotseen.svg);
+}
+
+.units-archive-list .module-list > li.module-completed:first-child:before {
+    background-image: url(img/bs-Fseen.svg);
+}
+
 
 /********************************************************/
 
