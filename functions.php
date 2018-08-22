@@ -122,8 +122,6 @@ function EP_scripts() {
     wp_dequeue_style( 'google_fonts_dosis' );
 }
 
-
-
 add_action( 'wp_enqueue_scripts', 'EP_scripts', 100 );
 
 add_shortcode( 'course_unit_archive_sidesubmenu', 'course_unit_archive_sidesubmenu');
@@ -574,7 +572,7 @@ class CoursePress_Widget_Help extends WP_Widget {
 		?>
 		<ul>
             <li>N'hesitez pas à poser une question sur le <a href="<?php echo esc_url_raw( $course_base_url . CoursePress_Core::get_slug( 'discussion' ) ); ?>"><?php echo esc_html__( 'Discussions', 'cp' ); ?></a></li>
-            <li>Vous pouvez aussi <a href="http://www.executionprojet.fr/contact/">contacter le formateur</a></li>
+            <li>Vous pouvez aussi <a href="https://www.executionprojet.fr/contact/">contacter le formateur</a></li>
 		</ul>
 		<?php
 		echo $after_widget;
