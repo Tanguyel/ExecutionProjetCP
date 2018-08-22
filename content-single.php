@@ -67,7 +67,7 @@
     </span>
     <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
         <meta itemprop="name" content="ExecutionProjet.fr">
-        <meta itemprop="logo" content="http://www.executionprojet.fr/wp-content/uploads/2018/06/Gravatar-ExecutionProjet.png">
+        <meta itemprop="logo" content="https://www.executionprojet.fr/wp-content/uploads/2018/06/Gravatar-ExecutionProjet.png">
     </span>
     <div class="date-modified date-links">Mis à jour le : <span itemprop="dateModified" content="<?php the_modified_date('Y-m-d'); ?>"><?php the_modified_date(); ?></span></div>
     <?php

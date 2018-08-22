@@ -150,7 +150,7 @@ endif;
         <div class="course_prerequisites right-content">
             <div itemprop="provider" itemscope itemtype="http://schema.org/Organization">
                 <meta itemprop="name" content="ExecutionProjet.fr">
-                <meta itemprop="logo" content="http://www.executionprojet.fr/wp-content/uploads/2018/06/Gravatar-ExecutionProjet.png">
+                <meta itemprop="logo" content="https://www.executionprojet.fr/wp-content/uploads/2018/06/Gravatar-ExecutionProjet.png">
                 <div class="calltoaction-button orange full"><a href="#footercontact" ><i class="fa fa-refresh"></i>Etre recontacté</a></div>
                 <div class="calltoaction-button orange full" itemprop="contactPoint" itemscope itemtype="http://schema.org/ContactPoint">
                     <a href="tel:+33644663500" ><i class="fa fa-mobile-phone fa-lg"></i>06 44 66 35 00</a>

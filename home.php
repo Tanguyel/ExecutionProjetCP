@@ -139,7 +139,7 @@ get_header();
             </div>
             <div class="section-button entreprise-section-button">
                 <div class="calltoaction-buton orange">
-                    <a href="http://www.executionprojet.fr/entreprise/" class="">
+                    <a href="https://www.executionprojet.fr/entreprise/" class="">
                         <span class="align-icon-right button-icon">
                             <i class="fa fa-arrow-right"></i>
                         </span>

@@ -121,7 +121,7 @@ $course_home = CoursePress_Core::get_slug( 'course', true );
                         </div><!-- .entry-content -->
                         <div itemprop="provider" itemscope="" itemtype="http://schema.org/Organization">
                             <meta itemprop="name" content="ExecutionProjet.fr">
-                            <meta itemprop="logo" content="http://www.executionprojet.fr/wp-content/uploads/2018/06/Gravatar-ExecutionProjet.png">
+                            <meta itemprop="logo" content="https://www.executionprojet.fr/wp-content/uploads/2018/06/Gravatar-ExecutionProjet.png">
                         </div>
                     </section>
                 </a>
