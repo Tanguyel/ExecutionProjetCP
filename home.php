@@ -26,10 +26,40 @@ get_header();
     <?php 
 
     if (function_exists('camera_main_ss_add')) {
-    ?>
+        if(!$_GET['screen']){
+            ?>
+            <script language="JavaScript">
+            if(screen.width <= 480){
+                location=location+"?screen=small";
+            }/*
+            else {
+                location=location+"?screen=small";
+                //document.location=\"$PHP_SELF?r=1&Largeur=\"+screen.width+\"&Hauteur=\"+screen.height;
+            }*/
+            </script>
+            <?php
+        }
+        else if($_GET['screen']=='small'){
+            ?>
+        <section class="top-section section-hero hero-display dynamic"> 
+            <?php echo do_shortcode('[camera slideshow="homeheroslideshowsmall"]'); 
+            ?>
+        </section>
+            <?php
+        }
+        
+        if(!isset($_GET['screen'])){
+            ?>
         <section class="top-section section-hero hero-display dynamic"> 
             <?php echo do_shortcode('[camera slideshow="homeheroslideshow"]'); 
-        /* Pour reference
+            ?>
+        </section>
+            <?php
+        }
+            /*?>
+        <section class="top-section section-hero hero-display dynamic"> 
+            <?php echo do_shortcode('[camera slideshow="homeheroslideshow"]'); 
+         Pour reference
 <div class="hero-display-warper">
     <div class="section-overlay hero-section-overlay"></div>
     <div class="section-title hero-section-title">
@@ -47,10 +77,10 @@ get_header();
         </div>
     </div>
 </div>
-*/
+
     ?>
         </section> 
-    <?php    
+    <?php    */
     } else {
         ?>
         <section class="top-section section-hero hero-display static">
