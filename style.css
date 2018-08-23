@@ -5,8 +5,8 @@ Description:  Theme for the ExecutionProjet.fr site based on CoursePress Theme
 Author: Tanguy El Mouahidine
 Author URI: 
 Template: coursepress
-Version: 0.0.15
-Date: 22/08/2018
+Version: 0.0.16
+Date: 23/08/2018
 Tags: course, courses, learning, teaching, training, e-learning, e-commerce
 */
 
@@ -600,6 +600,10 @@ article .entry-meta span a {
     .home-page .section-entreprise .section-title {
         padding: 30px 15% 20px 30px;
     }
+    
+    .home-page .section-entreprise {
+        background-image: url("https://www.executionprojet.fr/wp-content/uploads/2017/09/office-2360063_1920-1024x683.jpg");
+    }
 }
 
 @media screen and (max-width:480px) {
@@ -631,6 +635,16 @@ article .entry-meta span a {
         padding: 20px;
     }
     
+    .home-page .section-hero .hero-display-warper {
+    padding-top: 10px;
+    }
+    
+    .home-page .section-hero #camera_homeheroslideshow,
+    .home-page .section-hero #camera_homeheroslideshowsmall {
+        margin-bottom: 0px !important;
+    }
+    
+    
     .home-page .section-entreprise .section-title {
         padding: 20px 30px 15px 20px;
     }
@@ -639,6 +653,9 @@ article .entry-meta span a {
         font-size: 20px;
     }
     
+    .home-page .section-entreprise {
+        background-image: url("https://www.executionprojet.fr/wp-content/uploads/2017/09/office-2360063_1920-600x400.jpg");
+    }
     
     .home-page .section-home-footer {
         padding-top: 20px;
