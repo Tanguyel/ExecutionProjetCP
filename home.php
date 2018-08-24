@@ -180,7 +180,7 @@ get_header();
 		</section>
         
         <!-- Section de bas de page (à transformer en widget area)-->
-        <section class="footer-section section-home-footer widget-area home-footer-widget-area" role="footer">
+        <section class="footer-section section-home-footer widget-area home-footer-widget-area">
     <?php 
         get_sidebar('home-footer');
     ?>
