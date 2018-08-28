@@ -394,7 +394,7 @@ if (!function_exists('ep_breadcrumb')) {
 
         $showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
         $delimiter = '<span class="delimiter">&raquo;</span>'; // delimiter between crumbs
-        $home = sprintf( __( "Acceuil","ep_cp")); // text for the 'Home' link
+        $home = sprintf( __( "Accueil","ep_cp")); // text for the 'Home' link
         $before = '<span class="current">'; // tag before the current crumb
         $after = '</span>'; // tag after the current crumb
         $position = 1;

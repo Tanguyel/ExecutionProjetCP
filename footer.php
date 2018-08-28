@@ -35,7 +35,7 @@ $site_url = get_option('siteurl');
     <div class="ep-footer">
         <span class="tarteaucitronOpenPanel">Gestion des cookies</span>
         <span> - </span>
-        <span><a href="<?php echo $site_url; ?>/CGV/">Condition general de Vente</a></span>
+        <span><a href="<?php echo $site_url; ?>/CGV/">Condition generales de Vente</a></span>
         <span> - </span>
         <span><a href="<?php echo $site_url; ?>/reglement-interieur/">Réglement interieur</a></span>
     </div>
