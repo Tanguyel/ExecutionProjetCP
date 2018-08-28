@@ -1114,6 +1114,52 @@ Modification des custom post de la page d'acceuil
     border-bottom: none;
 }
 
+
+/************* Related post *************/
+
+.rp4wp-related-posts h3 {
+    border-bottom: 2px solid #00aeed;
+    padding-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 15px;
+    display: inline-block
+}
+
+.rp4wp-related-posts ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.rp4wp-related-posts li {
+    display: inline-block;
+    width: 200px;
+    margin: 15px;
+}
+
+.rp4wp-related-posts .rp4wp-related-post-image{
+    width: 100%;
+    padding-right: 0px;
+}
+
+.rp4wp-related-posts .rp4wp-related-post-image img {
+    width: 100%;
+}
+
+.rp4wp-related-posts .rp4wp-related-post-content {
+    text-align: center;
+}
+
+.rp4wp-related-posts .rp4wp-related-post-content a {
+    font-size: 20px;
+    font-family: 'raleway';
+    color: #000;
+    text-decoration: none
+}
+
+
 /****************************************
 
 Complement generiques pour les pages

@@ -161,6 +161,13 @@ function woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
 
+/***** Complement related post for wordpress *********/
+
+add_filter( 'rp4wp_append_content', '__return_false' );
+
+
+
+
 function course_unit_archive_sidesubmenu( $atts ) {
     extract( shortcode_atts(
         array(
