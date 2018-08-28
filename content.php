@@ -89,6 +89,10 @@
 		);
 		?>
         
+        <div class="calltoaction-button cyan" style="float:right">
+            <a href="<?php the_permalink(); ?>">Lire l'article </a>
+        </div>
+        
 	</footer><!-- .entry-meta -->
     <span itemprop="author" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="name" content="Tanguy El Mouahidine">
