@@ -1137,6 +1137,7 @@ Modification des custom post de la page d'acceuil
     display: inline-block;
     width: 200px;
     margin: 15px;
+    vertical-align: top;
 }
 
 .rp4wp-related-posts .rp4wp-related-post-image{
