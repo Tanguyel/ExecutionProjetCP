@@ -17,7 +17,7 @@
 <script>
   fbq('track', 'ViewContent', {
     content_ids: 'BMP',
-    content_type: 'formation',
+    content_type: 'product',
   });
 </script>
 
