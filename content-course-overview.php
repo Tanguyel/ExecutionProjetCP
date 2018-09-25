@@ -15,10 +15,10 @@
 ?>
 	</header><!-- .entry-header -->
 <script>
-  fbq('track', 'ViewContent', {
+  fbq('track', 'ViewContent'/*, {
     content_ids: 'BMP',
     content_type: 'product',
-  });
+  }*/);
 </script>
 
 
