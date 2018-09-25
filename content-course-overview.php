@@ -14,6 +14,13 @@
             }
 ?>
 	</header><!-- .entry-header -->
+<script>
+  fbq('track', 'ViewContent', {
+    content_ids: 'BMP',
+    content_type: 'formation',
+  });
+</script>
+
 
 	<section id="course-summary">
 		<?php
