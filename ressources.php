@@ -50,7 +50,7 @@ function ep_ressource_post_type() {
 		'label'                 => __( 'Ressource', 'text_domain' ),
 		'description'           => __( 'Des ressources disponibles', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields' ),
 		'taxonomies'            => array( 'ressource_category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,
@@ -67,7 +67,7 @@ function ep_ressource_post_type() {
 		'rewrite'               => $rewrite,
 		'capability_type'       => 'page',
 	);
-	register_post_type( 'ressource', $args );
+	register_post_type( 'ressources', $args );
 
 }
 add_action( 'init', 'ep_ressource_post_type', 0 );
@@ -118,4 +118,63 @@ add_action( 'init', 'ressource_category', 0 );
 
 }
 
+/**
+ * Adds a metabox to the right side of the screen under the â€œPublishâ€ box
+ */
+function ep_add_ressources_file() {
+	add_meta_box(
+		'ep_ressources_file',
+		'Fichier ressource',
+		'ep_ressources_file_metabox',
+		'ressources',
+		'side',
+		'default'
+	);
+}
+
+add_action("add_meta_boxes", "ep_add_ressources_file");
+
+/**
+ * Output the HTML for the metabox.
+ */
+function ep_ressources_file_metabox() {
+	global $post;
+	// Nonce field to validate form request came from current site
+	wp_nonce_field( basename( __FILE__ ), 'ressources_fields' );
+	// Get the location data if it's already been entered
+	$ressources = get_post_meta( $post->ID, 'ressource_file', true );
+	// Output the field
+	?>
+<fieldset>
+    <div>
+        <label for="ressource_file"><?php _e( 'FIchier ressource', 'text_domain' )?></label><br>
+        <input type="url" class="large-text" name="ressource_file" id="ressource_file" value="<?php echo esc_attr( $ressources ); ?>"><br>
+        <button type="button" class="button" id="ressources_file_upload_btn" data-media-uploader-target="#ressource_file"><?php _e( 'Charger un fichier', 'text_domain' )?></button>
+    </div>
+</fieldset>
+<?php
+}
+
+
+/**
+	 * Load the media uploader and our custom myplugin-media.js file
+	 * Change `myplugin_custom_post_type` to whatever the post type for your metabox is
+	 * You may also need to change the `plugins_url()` path to match your plugin folder structure (currently assumes flat with no subfolders)
+	 */
+	function ep_ressources_load_admin_scripts( $hook ) {
+		global $typenow;
+		if( $typenow == 'ressources' ) {
+			wp_enqueue_media();
+			// Registers and enqueues the required javascript.
+			wp_register_script( 'meta-box-image', get_stylesheet_directory_uri() . '/ressources_cpt/ressource_cpt.js' ); 
+			wp_localize_script( 'meta-box-image', 'meta_image',
+				array(
+					'title' => __( 'Choose or Upload Media', 'events' ),
+					'button' => __( 'Use this media', 'events' ),
+				)
+			);
+			wp_enqueue_script( 'meta-box-image' );
+		}
+	}
+	add_action( 'admin_enqueue_scripts', 'ep_ressources_load_admin_scripts', 10, 1 );
 ?>
