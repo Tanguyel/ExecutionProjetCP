@@ -1,0 +1,121 @@
+<?php
+/* Gere les custom post type ressources pour afficher des pages de ressources 
+*
+*
+*/
+
+
+
+if ( ! function_exists('ep_ressource_post_type') ) {
+
+// Register Custom Post Type
+function ep_ressource_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Ressources', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Ressource', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Ressources', 'text_domain' ),
+		'name_admin_bar'        => __( 'Ressources', 'text_domain' ),
+		'archives'              => __( 'Ressources Archives', 'text_domain' ),
+		'attributes'            => __( 'Ressource Attributes', 'text_domain' ),
+		'parent_item_colon'     => __( 'Ressource Parent :', 'text_domain' ),
+		'all_items'             => __( 'Toutes les ressources', 'text_domain' ),
+		'add_new_item'          => __( 'Ajouter une ressource', 'text_domain' ),
+		'add_new'               => __( 'Ajouter', 'text_domain' ),
+		'new_item'              => __( 'Nouvelle ressource', 'text_domain' ),
+		'edit_item'             => __( 'Modifier la ressource', 'text_domain' ),
+		'update_item'           => __( 'Mettre à jour la ressource', 'text_domain' ),
+		'view_item'             => __( 'Voir la ressource', 'text_domain' ),
+		'view_items'            => __( 'Voir les ressources', 'text_domain' ),
+		'search_items'          => __( 'Rechercher une ressource', 'text_domain' ),
+		'not_found'             => __( 'Aucune ressource trouvé', 'text_domain' ),
+		'not_found_in_trash'    => __( 'Aucune ressource trouvé dans la corbeille', 'text_domain' ),
+		'featured_image'        => __( 'Image en vedette', 'text_domain' ),
+		'set_featured_image'    => __( 'Sélectionner l\'image en vedette', 'text_domain' ),
+		'remove_featured_image' => __( 'Supprimer l\'image en vedette', 'text_domain' ),
+		'use_featured_image'    => __( 'Utiliser comme image en vedette', 'text_domain' ),
+		'insert_into_item'      => __( 'Insérer dans la ressource', 'text_domain' ),
+		'uploaded_to_this_item' => __( 'Télécharger pour cette ressource', 'text_domain' ),
+		'items_list'            => __( 'Liste des ressources', 'text_domain' ),
+		'items_list_navigation' => __( 'Parcourir la liste des ressources', 'text_domain' ),
+		'filter_items_list'     => __( 'Filtrer la liste des ressources', 'text_domain' ),
+	);
+	$rewrite = array(
+		'slug'                  => 'ressources',
+		'with_front'            => true,
+		'pages'                 => false,
+		'feeds'                 => true,
+	);
+	$args = array(
+		'label'                 => __( 'Ressource', 'text_domain' ),
+		'description'           => __( 'Des ressources disponibles', 'text_domain' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes' ),
+		'taxonomies'            => array( 'ressource_category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 20,
+		'menu_icon'             => 'dashicons-hammer',
+		'show_in_admin_bar'     => false,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => 'ressources',
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'rewrite'               => $rewrite,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'ressource', $args );
+
+}
+add_action( 'init', 'ep_ressource_post_type', 0 );
+
+}
+
+
+if ( ! function_exists( 'ressource_category' ) ) {
+
+// Register Custom Taxonomy
+function ressource_category() {
+
+	$labels = array(
+		'name'                       => _x( 'Types de ressource', 'Taxonomy General Name', 'text_domain' ),
+		'singular_name'              => _x( 'Type de ressource', 'Taxonomy Singular Name', 'text_domain' ),
+		'menu_name'                  => __( 'Type de ressource', 'text_domain' ),
+		'all_items'                  => __( 'Tous les types de ressource', 'text_domain' ),
+		'parent_item'                => __( 'Type de ressource parent', 'text_domain' ),
+		'parent_item_colon'          => __( 'Type parent :', 'text_domain' ),
+		'new_item_name'              => __( 'Nouveau type de ressource', 'text_domain' ),
+		'add_new_item'               => __( 'Ajouter un type de ressource', 'text_domain' ),
+		'edit_item'                  => __( 'Editer le type de ressource', 'text_domain' ),
+		'update_item'                => __( 'Mettre à jour le type de ressource', 'text_domain' ),
+		'view_item'                  => __( 'Voir le type de ressource', 'text_domain' ),
+		'separate_items_with_commas' => __( 'Separer les types avec une virgule', 'text_domain' ),
+		'add_or_remove_items'        => __( 'Ajouter ou supprimer des type de ressource', 'text_domain' ),
+		'choose_from_most_used'      => __( 'Choisir parmi les plus utilisés', 'text_domain' ),
+		'popular_items'              => __( 'Types populaires', 'text_domain' ),
+		'search_items'               => __( 'Rechercher un type de ressource', 'text_domain' ),
+		'not_found'                  => __( 'Aucun résultat', 'text_domain' ),
+		'no_terms'                   => __( 'Aucun type de ressource', 'text_domain' ),
+		'items_list'                 => __( 'Liste des types de ressource', 'text_domain' ),
+		'items_list_navigation'      => __( 'Parcourir les types de ressource', 'text_domain' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'ressource_type', array( 'ressources' ), $args );
+
+}
+add_action( 'init', 'ressource_category', 0 );
+
+}
+
+?>

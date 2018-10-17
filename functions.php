@@ -34,7 +34,7 @@ function orbisius_ctc_coursepress_child_theme_enqueue_styles() {
 
 add_action( 'wp_enqueue_scripts', 'orbisius_ctc_coursepress_child_theme_enqueue_styles' );
 
-
+include_once 'ressources.php';
 
 /**
  * Register widgetized area and update sidebar with default widgets.
