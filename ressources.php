@@ -140,15 +140,15 @@ add_action("add_meta_boxes", "ep_add_ressources_file");
 function ep_ressources_file_metabox() {
 	global $post;
 	// Nonce field to validate form request came from current site
-	wp_nonce_field( basename( __FILE__ ), 'ressources_fields' );
+	wp_nonce_field( basename( __FILE__ ), 'ressources_fields_meta' );
 	// Get the location data if it's already been entered
-	$ressources = get_post_meta( $post->ID, 'ressource_file', true );
+	$ressource_file = get_post_meta( $post->ID, 'ressource_file', true );
 	// Output the field
 	?>
 <fieldset>
     <div>
-        <label for="ressource_file"><?php _e( 'FIchier ressource', 'text_domain' )?></label><br>
-        <input type="url" class="large-text" name="ressource_file" id="ressource_file" value="<?php echo esc_attr( $ressources ); ?>"><br>
+        <label for="ressource_file"><?php _e( 'Fichier ressource', 'text_domain' )?></label><br>
+        <input type="url" class="large-text" name="ressource_file" id="ressource_file" value="<?php echo esc_attr( $ressource_file ); ?>"><br>
         <button type="button" class="button" id="ressources_file_upload_btn" data-media-uploader-target="#ressource_file"><?php _e( 'Charger un fichier', 'text_domain' )?></button>
     </div>
 </fieldset>
@@ -177,4 +177,42 @@ function ep_ressources_file_metabox() {
 		}
 	}
 	add_action( 'admin_enqueue_scripts', 'ep_ressources_load_admin_scripts', 10, 1 );
+
+
+function ep_save_ressources_meta( $post_id, $post ) {
+	// Return if the user doesn't have edit permissions.
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return $post_id;
+	}
+	// Verify this came from the our screen and with proper authorization,
+	// because save_post can be triggered at other times.
+	if ( ! isset( $_POST['ressource_file'] ) || ! wp_verify_nonce( $_POST['ressources_fields_meta'], basename(__FILE__) ) ) {
+		return $post_id;
+	}
+	// Now that we're authenticated, time to save the data.
+	// This sanitizes the data from the field and saves it into an array $events_meta.
+	$events_meta['ressource_file'] = esc_textarea( $_POST['ressource_file'] );
+    
+	// Cycle through the $events_meta array.
+	// Note, in this example we just have one item, but this is helpful if you have multiple.
+	foreach ( $events_meta as $key => $value ) :
+		// Don't store custom data twice
+		if ( 'revision' === $post->post_type ) {
+			return;
+		}
+		if ( get_post_meta( $post_id, $key, false ) ) {
+			// If the custom field already has a value, update it.
+			update_post_meta( $post_id, $key, $value );
+		} else {
+			// If the custom field doesn't have a value, add it.
+			add_post_meta( $post_id, $key, $value);
+		}
+		if ( ! $value ) {
+			// Delete the meta key if there's no value
+			delete_post_meta( $post_id, $key );
+		}
+	endforeach;
+}
+add_action( 'save_post', 'ep_save_ressources_meta', 1, 2 );
+
 ?>
