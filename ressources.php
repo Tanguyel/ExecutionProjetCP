@@ -47,7 +47,7 @@ function ep_ressource_post_type() {
 		'feeds'                 => true,
 	);
 	$args = array(
-		'label'                 => __( 'Ressource', 'text_domain' ),
+		'label'                 => __( 'Ressources', 'text_domain' ),
 		'description'           => __( 'Des ressources disponibles', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields' ),
@@ -124,7 +124,7 @@ add_action( 'init', 'ressource_category', 0 );
 function ep_add_ressources_file() {
 	add_meta_box(
 		'ep_ressources_file',
-		'Fichier ressource',
+		'Ressource',
 		'ep_ressources_file_metabox',
 		'ressources',
 		'side',
@@ -143,9 +143,14 @@ function ep_ressources_file_metabox() {
 	wp_nonce_field( basename( __FILE__ ), 'ressources_fields_meta' );
 	// Get the location data if it's already been entered
 	$ressource_file = get_post_meta( $post->ID, 'ressource_file', true );
+    $ressource_name = get_post_meta( $post->ID, 'ressource_name', true );
 	// Output the field
 	?>
 <fieldset>
+    <div>
+        <label for="ressource_name"><?php _e( 'Nom de la ressource', 'text_domain' )?></label><br>
+        <input type="text" class="large-text" name="ressource_name" id="ressource_name" value="<?php echo esc_attr( $ressource_name ); ?>"><br>
+    </div>
     <div>
         <label for="ressource_file"><?php _e( 'Fichier ressource', 'text_domain' )?></label><br>
         <input type="url" class="large-text" name="ressource_file" id="ressource_file" value="<?php echo esc_attr( $ressource_file ); ?>"><br>
@@ -192,6 +197,7 @@ function ep_save_ressources_meta( $post_id, $post ) {
 	// Now that we're authenticated, time to save the data.
 	// This sanitizes the data from the field and saves it into an array $events_meta.
 	$events_meta['ressource_file'] = esc_textarea( $_POST['ressource_file'] );
+    $events_meta['ressource_name'] = esc_textarea( $_POST['ressource_name'] );
     
 	// Cycle through the $events_meta array.
 	// Note, in this example we just have one item, but this is helpful if you have multiple.

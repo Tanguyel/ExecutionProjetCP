@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Telechargement fchier
+Template Name: Telechargement fichier
 */
 
 /**
