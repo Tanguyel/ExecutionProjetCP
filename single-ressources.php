@@ -67,7 +67,7 @@ get_header(); ?>
             </div><!-- #primary -->
             <script type="text/javascript">//Rediriger vers le telechargement quand le formulaire est soumis
                 document.addEventListener( 'wpcf7mailsent', function( event ) {
-                     location = <?php echo get_post_meta(get_the_ID(), 'ressource_file', true); //'http://www.executionprojet.fr/wp-content/uploads/2018/06/modele-5_Planning-rev1.xlsm'; ?>
+                     location = ' <?php echo get_post_meta(get_the_ID(), 'ressource_file', true);  ?> '
                 }, false ); 
             </script>
             <?php get_sidebar( 'landing-sidebar' ); ?>
