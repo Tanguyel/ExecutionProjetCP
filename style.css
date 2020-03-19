@@ -5,8 +5,8 @@ Description:  Theme for the ExecutionProjet.fr site based on CoursePress Theme
 Author: Tanguy El Mouahidine
 Author URI: 
 Template: coursepress
-Version: 0.0.19
-Date: 28/11/2018
+Version: 0.0.20
+Date: 18/03/2020
 Tags: course, courses, learning, teaching, training, e-learning, e-commerce
 */
 
@@ -1168,7 +1168,7 @@ Complement generiques pour les pages
 
 *****************************************/
 
-.h1-underline-cyan {
+.h1-underline-cyan, .underline-cyan {
     border-bottom: 2px solid #00AEED;
     padding-top: 20px;
     padding-left: 20px;
@@ -1176,7 +1176,7 @@ Complement generiques pour les pages
         margin-bottom: 30px;
 }
 
-.h1-underline-orange {
+.h1-underline-orange, .underline-orange {
     border-bottom: 2px solid #F8931F;
     padding-top: 20px;
     padding-left: 20px;
@@ -1184,7 +1184,7 @@ Complement generiques pour les pages
     margin-bottom: 30px;
 }
 
-.h1-underline-violet {
+.h1-underline-violet, .underline-violet {
     border-bottom: 2px solid #604A95;
     padding-top: 20px;
     padding-left: 20px;
@@ -1192,6 +1192,9 @@ Complement generiques pour les pages
     margin-bottom: 30px;
 }
 
+h1.hero-title {
+    font-size: 40px;
+}
 
 .page-column-container {
     display: flex
@@ -1855,12 +1858,18 @@ ul.tabs-list li.active {
     font-weight: 700; 
     text-align: center;
     font-size: 24px;
+    margin-bottom: 30px;
 }
 
 .icon-box p {
     text-align: center;
     margin: 15px 10px;
 }
+
+.iconbox div{
+    padding:20px 30px
+}
+
 
 
 /**************  Pricing Table **********/
