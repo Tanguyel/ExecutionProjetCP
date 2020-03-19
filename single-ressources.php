@@ -70,7 +70,23 @@ get_header(); ?>
                      location = ' <?php echo get_post_meta(get_the_ID(), 'ressource_file', true);  ?> '
                 }, false ); 
             </script>
-            <?php get_sidebar( 'landing-sidebar' ); ?>
+            <?php //get_sidebar( 'landing-sidebar' ); ?>
+            
+            <div id="secondary" class="widget-area landing-sidebar" role="complementary">
+		      <aside id="text-3" class="widget widget_text">
+                <h2 class="widget-title">Téléchargez Maintenant</h2>			
+                <div class="textwidget">
+                    <?php 
+                    $modele_name = get_post_meta(get_the_ID(), 'ressource_name', true);
+                    $code_form = do_shortcode('[contact-form-7 id="3230" title="Télécharger votre Modèle" modele_name=' .  $modele_name . ']');
+                    echo $code_form;
+                    ?>
+                    
+                </div>
+                </aside>    
+                <div class="clearfix"></div>
+                <!-- Landing sidebar -->
+            </div>
 
         </article><!-- #post-## -->
 
