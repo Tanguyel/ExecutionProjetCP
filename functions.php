@@ -587,3 +587,19 @@ class CoursePress_Widget_Help extends WP_Widget {
 }
 
 */
+
+
+
+
+
+
+/* Ajout automatique du code de reduction COVID-19 */
+
+add_action( 'woocommerce_before_cart', 'COVID_apply_coupon' );
+ 
+function COVID_apply_coupon() {
+    $coupon_code = 'COVID-19'; 
+    if ( WC()->cart->has_discount( $coupon_code ) ) return;
+    WC()->cart->add_discount( $coupon_code );
+    wc_print_notices();
+}
