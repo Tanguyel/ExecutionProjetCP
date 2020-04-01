@@ -78,6 +78,7 @@ get_header(); ?>
                 <div class="textwidget">
                     <?php 
                     $modele_name = get_post_meta(get_the_ID(), 'ressource_name', true);
+                    $modele_name = str_replace(" ","_",$modele_name);
                     $code_form = do_shortcode('[contact-form-7 id="3230" title="Télécharger votre Modèle" modele_name=' .  $modele_name . ']');
                     echo $code_form;
                     ?>
