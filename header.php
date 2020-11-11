@@ -20,13 +20,38 @@
         ?>
         <script type="text/javascript">
         tarteaucitron.init({
-            "hashtag": "#tarteaucitron", /* Ouverture automatique du panel avec le hashtag */
-            "highPrivacy": false, /* désactiver le consentement implicite (en naviguant) ? */
-            "orientation": "top", /* le bandeau doit être en haut (top) ou en bas (bottom) ? */
-            "adblocker": false, /* Afficher un message si un adblocker est détecté */
-            "showAlertSmall": false, /* afficher le petit bandeau en bas à droite ? */
-            "cookieslist": true, /* Afficher la liste des cookies installés ? */
-            "removeCredit": false /* supprimer le lien vers la source ? */
+    	  "privacyUrl": "", /* Privacy policy url */
+
+    	  "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+    	  "cookieName": "tarteaucitron", /* Cookie name */
+    
+    	  "orientation": "middle", /* Banner position (top - bottom) */
+                           
+    	  "showAlertSmall": false, /* Show the small banner on bottom right */
+    	  "cookieslist": false, /* Show the cookie list */
+                           
+          "showIcon": true, /* Show cookie icon to manage cookies */
+          "iconPosition": "BottomRight", /* BottomRight, BottomLeft, TopRight and TopLeft */
+
+    	  "adblocker": false, /* Show a Warning if an adblocker is detected */
+                           
+          "DenyAllCta" : true, /* Show the deny all button */
+          "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
+          "highPrivacy": false, /* HIGHLY RECOMMANDED Disable auto consent */
+                           
+    	  "handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
+
+    	  "removeCredit": false, /* Remove credit link */
+    	  "moreInfoLink": true, /* Show more info link */
+
+          "useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
+          "useExternalJs": false, /* If false, the tarteaucitron.js file will be loaded */
+
+    	  //"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
+                          
+          "readmoreLink": "", /* Change the default readmore link */
+
+          "mandatory": true, /* Show a message about mandatory cookies */
         });
         </script>
     </head>

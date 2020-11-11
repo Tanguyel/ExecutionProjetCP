@@ -44,7 +44,7 @@ $site_url = get_option('siteurl');
 <?php wp_footer(); ?>
 
 <?php 
-    if ( $site_url == 'https://www.executionprojet.fr' || $site_url == 'http://www.executionprojet.fr' ) {
+    //if ( $site_url == 'https://www.executionprojet.fr' || $site_url == 'http://www.executionprojet.fr' ) {
         $GA_UA = 'tarteaucitron.user.analyticsUa = \'UA-97710296-1\';
     tarteaucitron.user.analyticsMore = function () { /* add here your optionnal ga.push() */ };
     (tarteaucitron.job = tarteaucitron.job || []).push(\'analytics\');';
@@ -52,14 +52,16 @@ $site_url = get_option('siteurl');
         $hubspot_id = 'tarteaucitron.user.hubspotId = \'4491035\';';
         $pixelFB = 'tarteaucitron.user.facebookpixelId = \'1665633716893017\'; tarteaucitron.user.facebookpixelMore = function () {};
         (tarteaucitron.job = tarteaucitron.job || []).push(\'facebookpixel\');';
-    } else {
+    /*} else {
         $GA_UA = '';
         $Insight = '';
         $hubspot_id = '';
-    }
+    }*/
 ?>
 <script type="text/javascript">
     <?php echo $GA_UA; ?>
+    /*tarteaucitron.user.googletagmanagerId = 'GTM-TJTJGLV';
+    (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');*/
     (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
     (tarteaucitron.job = tarteaucitron.job || []).push('linkedin');
     (tarteaucitron.job = tarteaucitron.job || []).push('facebook');

@@ -114,7 +114,7 @@ if ( ! function_exists( 'executionprojet_widgets_init' ) ) :
 endif;
 
 function EP_scripts() {
-    wp_enqueue_script( 'tarteaucitron', '/tarteaucitron/tarteaucitron.js' );
+    wp_enqueue_script( 'tarteaucitron', 'wp-content/tarteaucitron/tarteaucitron.js' );
     wp_enqueue_style( 'font-awesome', get_stylesheet_directory_uri() . '/font-awesome/css/font-awesome.min.css' );
     wp_enqueue_style( 'google_fonts_Raleway', 'https://fonts.googleapis.com/css?family=Raleway' );
     wp_enqueue_style( 'google_fonts_SourceSansPro', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro' );
@@ -594,7 +594,7 @@ class CoursePress_Widget_Help extends WP_Widget {
 
 
 /* Ajout automatique du code de reduction COVID-19 */
-
+/*
 add_action( 'woocommerce_before_cart', 'COVID_apply_coupon' );
  
 function COVID_apply_coupon() {
@@ -603,3 +603,4 @@ function COVID_apply_coupon() {
     WC()->cart->add_discount( $coupon_code );
     wc_print_notices();
 }
+*/
