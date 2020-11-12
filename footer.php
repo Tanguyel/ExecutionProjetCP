@@ -45,8 +45,9 @@ $site_url = get_option('siteurl');
 
 <?php 
     //if ( $site_url == 'https://www.executionprojet.fr' || $site_url == 'http://www.executionprojet.fr' ) {
-        $GA_UA = 'tarteaucitron.user.analyticsUa = \'UA-97710296-1\';
-    tarteaucitron.user.analyticsMore = function () { /* add here your optionnal ga.push() */ };
+        $GA_UA = 'tarteaucitron.user.analyticsUa = \'UA-97710296-3\';
+    tarteaucitron.user.analyticsMore = function () { ga('require', 'linkid', 'linkid.js');
+var links_out = document.querySelectorAll('a[href^="http"]'); links_out.forEach(function (link, key, listObj){ if (!link.href.match(/.*\.(zip|mp3*|mpe*g|pdf|docx*|pptx*|xlsx*|rar*)(\?.*)?$/) { if (link.href.indexOf('mysite.example') == -1) { link.addEventListener('click', function (e){ ga('send', 'event', 'outbound', 'click', e.target.href, {'nonInteraction': 1}); }); }); } }}); };
     (tarteaucitron.job = tarteaucitron.job || []).push(\'analytics\');';
        /* $Insight = '<script type="text/javascript"> _linkedin_data_partner_id = "338324"; </script><script type="text/javascript"> (function(){var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})(); </script> <noscript> <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=338324&fmt=gif" /> </noscript>';*/
         $hubspot_id = 'tarteaucitron.user.hubspotId = \'4491035\';';
@@ -65,7 +66,7 @@ $site_url = get_option('siteurl');
     (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
     (tarteaucitron.job = tarteaucitron.job || []).push('linkedin');
     tarteaucitron.user.linkedininsighttag = '338324';
-        (tarteaucitron.job = tarteaucitron.job || []).push('linkedininsighttag');
+    (tarteaucitron.job = tarteaucitron.job || []).push('linkedininsighttag');
     (tarteaucitron.job = tarteaucitron.job || []).push('facebook');
     (tarteaucitron.job = tarteaucitron.job || []).push('facebookcomment');
     <?php echo $pixelFB; ?>
