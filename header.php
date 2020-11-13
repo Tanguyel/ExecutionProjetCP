@@ -25,17 +25,17 @@
     	  "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
     	  "cookieName": "tarteaucitron", /* Cookie name */
     
-    	  "orientation": "middle", /* Banner position (top - bottom) */
+    	  "orientation": "bottom", /* Banner position (top - bottom) */
                            
-    	  "showAlertSmall": false, /* Show the small banner on bottom right */
+    	  "showAlertSmall": true, /* Show the small banner on bottom right */
     	  "cookieslist": false, /* Show the cookie list */
                            
-          "showIcon": true, /* Show cookie icon to manage cookies */
+          "showIcon": false, /* Show cookie icon to manage cookies */
           "iconPosition": "BottomRight", /* BottomRight, BottomLeft, TopRight and TopLeft */
 
     	  "adblocker": false, /* Show a Warning if an adblocker is detected */
                            
-          "DenyAllCta" : true, /* Show the deny all button */
+          "DenyAllCta" : false, /* Show the deny all button */
           "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
           "highPrivacy": false, /* HIGHLY RECOMMANDED Disable auto consent */
                            
