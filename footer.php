@@ -74,7 +74,7 @@ $site_url = get_option('siteurl');
     (tarteaucitron.job = tarteaucitron.job || []).push('hubspot');
     //(tarteaucitron.job = tarteaucitron.job || []).push('hubspotform');
     (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
-    tarteaucitron.user.tarteaucitron.user.sendinblueID = 'havggjwd4087b2awoztn49bb';
+    tarteaucitron.user.sendinblueID = 'havggjwd4087b2awoztn49bb';
     (tarteaucitron.job = tarteaucitron.job || []).push('sendinblue');
     
 </script>
