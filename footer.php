@@ -74,6 +74,9 @@ $site_url = get_option('siteurl');
     (tarteaucitron.job = tarteaucitron.job || []).push('hubspot');
     //(tarteaucitron.job = tarteaucitron.job || []).push('hubspotform');
     (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
+    tarteaucitron.user.tarteaucitron.user.sendinblueID = 'havggjwd4087b2awoztn49bb';
+    (tarteaucitron.job = tarteaucitron.job || []).push('sendinblue');
+    
 </script>
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1665633716893017&ev=PageView&noscript=1"
