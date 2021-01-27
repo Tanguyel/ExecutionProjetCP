@@ -65,6 +65,49 @@ get_header(); ?>
                 );
                 ?>
             </div><!-- #primary -->
+            <script type="text/javascript">//Envoie d'un évenément Sendinblue une fois le formulaire envoyé
+                document.addEventListener( 'wpcf7mailsent', function( event ) {
+                    var inputs = event.detail.inputs;
+                    for ( var i = 0; i < inputs.length; i++ ) {
+                        if ( 'lastname' == inputs[i].name ) {
+                            var f_name = inputs[i].value;
+                        };
+                        if ( 'email' == inputs[i].name ) {
+                            var f_email = inputs[i].value;
+                        };
+                         if ( 'firstname' == inputs[i].name ) {
+                            var f_prenom = inputs[i].value;
+                        };
+                         if ( 'company' == inputs[i].name ) {
+                            var f_company = inputs[i].value;
+                        };
+                         if ( 'modele_name' == inputs[i].name ) {
+                            var f_modele = inputs[i].value;
+                        };
+                    }
+                    sendinblue.track(
+                        'Telechargement_Modele',
+                        {
+                            "NOM": f_name,
+                            "PRENOM": f_prenom,
+                            "ENTREPRISE": f_company
+                        },
+                        {
+                            "data": {
+                                "MODELE": f_modele
+                            }
+                        }
+                     );
+                    sendinblue.identify(
+                        f_email, 
+                        {
+                            "NOM": f_name,
+                            "PRENOM": f_prenom,
+                            "ENTREPRISE": f_company,
+                            "MODELE": f_modele
+                        });
+                }, false ); 
+            </script>
             <script type="text/javascript">//Rediriger vers le telechargement quand le formulaire est soumis
                 document.addEventListener( 'wpcf7mailsent', function( event ) {
                      location = ' <?php echo get_post_meta(get_the_ID(), 'ressource_file', true);  ?> '
