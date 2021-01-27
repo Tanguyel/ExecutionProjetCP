@@ -101,9 +101,7 @@ get_header(); ?>
                             "ENTREPRISE": f_company
                         },
                         {
-                            "data": {
-                                "MODELE": f_modele
-                            }
+                            "MODELE": f_modele
                         }
                      );
                 }, false ); 
