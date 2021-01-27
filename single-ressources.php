@@ -85,6 +85,14 @@ get_header(); ?>
                             var f_modele = inputs[i].value;
                         };
                     }
+                    sendinblue.identify(
+                        f_email, 
+                        {
+                            "NOM": f_name,
+                            "PRENOM": f_prenom,
+                            "ENTREPRISE": f_company,
+                            "MODELE": f_modele
+                        });
                     sendinblue.track(
                         'Telechargement_Modele',
                         {
@@ -98,14 +106,6 @@ get_header(); ?>
                             }
                         }
                      );
-                    sendinblue.identify(
-                        f_email, 
-                        {
-                            "NOM": f_name,
-                            "PRENOM": f_prenom,
-                            "ENTREPRISE": f_company,
-                            "MODELE": f_modele
-                        });
                 }, false ); 
             </script>
             <script type="text/javascript">//Rediriger vers le telechargement quand le formulaire est soumis
