@@ -106,11 +106,14 @@ get_header(); ?>
                      );
                 }, false ); 
             </script>
+            <?php /*
             <script type="text/javascript">//Rediriger vers le telechargement quand le formulaire est soumis
                 document.addEventListener( 'wpcf7mailsent', function( event ) {
                      location = ' <?php echo get_post_meta(get_the_ID(), 'ressource_file', true);  ?> '
                 }, false ); 
             </script>
+            */
+            ?>
             <?php //get_sidebar( 'landing-sidebar' ); ?>
             
             <div id="secondary" class="widget-area landing-sidebar" role="complementary">
