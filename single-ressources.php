@@ -41,7 +41,7 @@ get_header(); ?>
 	
     <main id="main" class="site-main" role="main">
 
-    <?php/*
+    <?php /*
     while ( have_posts() ) :
         the_post();*/
     //$ressource_file = get_post_meta(get_the_ID(), 'ressource_file', true);
@@ -136,7 +136,7 @@ get_header(); ?>
         </article><!-- #post-## -->
 
 
-    <?php/*
+    <?php /*
     endwhile; // end of the loop.*/
     ?>
 
