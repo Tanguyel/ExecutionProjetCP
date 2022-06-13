@@ -24,11 +24,11 @@ $site_url = get_option('siteurl');
 			array( 'theme_location' => 'secondary' )
 		);*/
 ?>
-</nav><!-- #site-navigation --> 
+</nav><!-- #site-navigation -->
 
     <div class="ep-footer ep-credit" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-        Copyright © 
-        <span class="ep-footer-year">2020</span> 
+        Copyright ©
+        <span class="ep-footer-year">2020</span>
         <span class="ep-footer-site-title" itemprop="name"> ELM SAS</span>
         <meta itemprop="logo" content="">
     </div>
@@ -60,6 +60,11 @@ $site_url = get_option('siteurl');
 ?>
 <script type="text/javascript">
     <?php echo $GA_UA; ?>
+    tarteaucitron.user.gtagUa = 'G-59CYS6G4VS';
+    // tarteaucitron.user.gtagCrossdomain = ['example.com', 'example2.com'];
+    tarteaucitron.user.gtagMore = function() {
+        /* add here your optionnal gtag() */ };
+    (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
     tarteaucitron.user.googletagmanagerId = 'GTM-TJTJGLV';
     (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
     (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
@@ -69,19 +74,18 @@ $site_url = get_option('siteurl');
     (tarteaucitron.job = tarteaucitron.job || []).push('facebook');
     (tarteaucitron.job = tarteaucitron.job || []).push('facebookcomment');
     <?php echo $pixelFB; ?>
-    (tarteaucitron.job = tarteaucitron.job || []).push('twitter');
+        (tarteaucitron.job = tarteaucitron.job || []).push('twitter');
     <?php echo $hubspot_id; ?>
-    (tarteaucitron.job = tarteaucitron.job || []).push('hubspot');
+        (tarteaucitron.job = tarteaucitron.job || []).push('hubspot');
     //(tarteaucitron.job = tarteaucitron.job || []).push('hubspotform');
     (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
     tarteaucitron.user.sendinblueID = 'havggjwd4087b2awoztn49bb';
     (tarteaucitron.job = tarteaucitron.job || []).push('sendinblue');
-    
+
 </script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1665633716893017&ev=PageView&noscript=1"
-/></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1665633716893017&ev=PageView&noscript=1" /></noscript>
 <?php /*echo $Insight; */?>
 
 </body>
+
 </html>
